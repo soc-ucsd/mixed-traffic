@@ -12,7 +12,7 @@ addpath('_data');
 %% Key parameters
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Mix or not
-mix = 1;
+mix = 0;
 % 1.Optimal Control  2.FollowerStopper  3.PI with Saturation
 controllerType = 1;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -23,7 +23,7 @@ brakeID = 6 - 1;
 N = 20;
 s_star = 20;
 
-videoOutput = 0; % whether write into the video
+videoOutput = 1; % whether write into the video
 
 
 %% Controller
@@ -317,6 +317,11 @@ set(l1,'fontsize',Wsize-2,'box','off','Interpreter','latex','location','NorthWes
 
 
 %% Animation
+if mix
+    videoFile = 'Mix.mp4';
+else
+    videoFile = 'HDV.mp4';
+end
 
 if videoOutput
 myVideo = VideoWriter(videoFile,'MPEG-4');
