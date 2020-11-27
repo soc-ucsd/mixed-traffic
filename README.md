@@ -1,4 +1,5 @@
 # MCMT
+
 In this project, dynamical modeling and fundamental properties are investigated for ring-road mixed traffic systems with Connected and Autonomous Vehicle (CAVs) and human-driven vehicles (HDVs). Optimal control strategies are designed for CAVs with a system-level consideration, i.e., dissipating traffic waves and improving the performance of the entire mixed traffic flow. 
 
 An existing solver, [MOSEK](https://www.mosek.com/), is needed to be installed first to numerically solve the optimization problem and obtain the optimal controller.
@@ -7,31 +8,38 @@ An existing solver, [MOSEK](https://www.mosek.com/), is needed to be installed f
 
 Although large-scale numerical simulations and small-scale experiments have shown promising results, a comprehensive theoretical understanding to smooth traffic flow via AVs is lacking. In this paper, from a control-theoretic perspective, we establish analytical results on the **controllability**, **stabilizability**, and **reachability** of a mixed traffic system consisting of HDVs and AVs in a ring road.
 
+Schematic for the mixed traffic system is as follows.
+
 <img src="docs/img/system_schematic_1AV.PNG" align="center" width="70%"/>
 
-<center>System schematic for mixed traffic system with one AV</center>
-<img src="docs/img/all_HDVs.gif" align="center" width="80%"/>
 
-<center>All the vehicles are HDVs</center>
-<img src="docs/img/one_AV.gif" align="center" width="80%"/>
 
-<center>There is one AV</center>
+<img src="docs/img/all_HDVs.gif" align="center" width="100%"/>
+
+<p align="center">All the vehicles are HDVs</p>
+
+<img src="docs/img/one_AV.gif" align="center" width="100%"/>
+
+<p align="center">There is one AV</p>
+
 ## Structured Optimal Control of AV
 
 Due to the limit of communication abilities in practice, the CAV can only receive partial information of the
 global traffic system for its feedback. Therefore, it is important to consider the **local available information** of the neighboring vehicles. Utilizing limited information exchange to control a large-scale network system leads to the notion of **structured controller design**.
 
+Illustration for structured constraints under limited communication abilities is as follows.
+
 <img src="docs/img/structured_control.PNG" align="center" width="70%"/>
 
-<center>Structured constraints under limited communication abilities</center>
 ## Cooperative Formation of Multiple AVs
 
 In mixed traffic flow, the prevailing platooning of multiple AVs is not the only choice for cooperative formation. We re-design the control strategies of AVs in different formations and investigate the optimal formation of multiple AVs using set-function optimization. Two predominant optimal formations, i.e., **uniform distribution** and **platoon formation**, emerges from extensive numerical experiments.
 
-<img src="docs/img/uniform_distribution.gif" align="center" width="80%"/>
+<img src="docs/img/uniform_distribution.gif" align="center" width="100%"/>
 
-<center>Uniform Distribution</center>
-<img src="docs/img/platoon_formation.gif" align="center" width="80%"/>
+<p align="center">Uniform Distribution</p>
+
+<img src="docs/img/platoon_formation.gif" align="center" width="100%"/>
 
 <p align="center">Platoon Formation</p>
 
