@@ -20,17 +20,17 @@ Although large-scale numerical simulations and small-scale experiments have show
 
 A schematic diagram for the mixed traffic system is as follows.
 <p align="center">
-<img src="docs/img/system_schematic_1AV.PNG" align="center" width="60%"/>
+<img src="docs/img/system_schematic_1AV.PNG" align="center" width="50%"/>
 </p>
 Two demonstrations are shown below:
 
 <p align="center">
-<img src="docs/img/all_HDVs.gif" align="center" width="80%"/>
+<img src="docs/img/all_HDVs.gif" align="center" width="70%"/>
 </p>
 <p align="center">All the vehicles are HDVs: traffic wave emerges      </p>
 
 <p align="center">
-<img src="docs/img/one_AV.gif" align="center" width="80%"/>
+<img src="docs/img/one_AV.gif" align="center" width="70%"/>
 </p>
 
 <p align="center">There is one AV: dissipating traffic wave         </p>
@@ -47,7 +47,7 @@ global traffic system for its feedback. Therefore, it is important to consider t
 
 Illustration for structured constraints under limited communication abilities is as follows.
 <p align="center">
-<img src="docs/img/structured_control.PNG" align="center" width="60%"/>
+<img src="docs/img/structured_control.PNG" align="center" width="50%"/>
 </p>
 ### References
 - Wang, J., Zheng, Y., Xu, Q., Wang, J., & Li, K. (2020). Controllability Analysis and Optimal Control of Mixed Traffic Flow with Human-driven and Autonomous Vehicles. *IEEE Transactions on Intelligent Transportation Systems, 1-15*.[[pdf](https://wangjw18.github.io/files/2020-TITS.pdf)]
@@ -57,13 +57,13 @@ Illustration for structured constraints under limited communication abilities is
 ## Topic 3: Cooperative Formation of Multiple Autonomous Vehicles: beyong platooning <a name="Topic-3"></a>
 
 In mixed traffic flow, the prevailing platooning of multiple AVs is not the only choice for cooperative formation. We re-design the control strategies of AVs in different formations and investigate the optimal formation of multiple AVs using set-function optimization. Two predominant optimal formations, i.e., **uniform distribution** and **platoon formation**, emerges from extensive numerical experiments.
-
-<img src="docs/img/uniform_distribution.gif" align="center" width="80%"/>
-
+<p align="center">
+<img src="docs/img/uniform_distribution.gif" align="center" width="70%"/>
+</p>
 <p align="center">Uniform Distribution</p>
-
-<img src="docs/img/platoon_formation.gif" align="center" width="80%"/>
-
+<p align="center">
+<img src="docs/img/platoon_formation.gif" align="center" width="70%"/>
+</p>
 <p align="center">Platoon Formation</p>
 
 ### References
