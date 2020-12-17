@@ -49,6 +49,7 @@ Illustration for structured constraints under limited communication abilities is
 <p align="center">
 <img src="docs/img/structured_control.PNG" align="center" width="50%"/>
 </p>
+
 ### References
 - Wang, J., Zheng, Y., Xu, Q., Wang, J., & Li, K. (2020). Controllability Analysis and Optimal Control of Mixed Traffic Flow with Human-driven and Autonomous Vehicles. *IEEE Transactions on Intelligent Transportation Systems, 1-15*.[[pdf](https://wangjw18.github.io/files/2020-TITS.pdf)]
 - Wang, J., Zheng, Y., Xu, Q., Wang, J., & Li, K. (2019, June). Controllability analysis and optimal controller synthesis of mixed traffic systems. In *2019 IEEE Intelligent Vehicles Symposium (IV)* (pp. 1041-1047). IEEE. [[pdf](https://wangjw18.github.io/files/2019-IV.pdf)] [[poster](https://wangjw18.github.io/files/2019-IV-poster.pdf)]
