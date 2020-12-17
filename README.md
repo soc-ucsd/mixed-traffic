@@ -5,19 +5,20 @@ In this project, dynamical modeling and fundamental properties are investigated 
 1. dissipating traffic waves and 
 2. improving the performance of the entire mixed traffic flow. 
 
-The Modeling package, [YALMIP](https://yalmip.github.io/), and the optimization solver, [MOSEK](https://www.mosek.com/), are needed to solve the semidefinite program in controller synthesis
+In particular, we demonstrate three important topics in mixed traffic flow.
 
 * [Topic 1: Smoothing Traffic Flow via Autonomous Vehicles](#Topic-1)
 * [Topic 2: Structured Optimal Control of Autonomous Vehicles](#Topic-2)
 * [Topic 3: Cooperative Formation of Multiple Autonomous Vehicles: beyong platooning](#Topic-3)
+
+To run the code, the Modeling package, [YALMIP](https://yalmip.github.io/), and the optimization solver, [MOSEK](https://www.mosek.com/), are needed to solve the semidefinite program in controller synthesis
 
 
 ## Topic 1: Smoothing Traffic Flow via Autonomous Vehicles <a name="Topic-1"></a>
 
 Although large-scale numerical simulations and small-scale experiments have shown promising results, a comprehensive theoretical understanding to smooth traffic flow via AVs is lacking. In this paper, from a control-theoretic perspective, we establish analytical results on the **controllability**, **stabilizability**, and **reachability** of a mixed traffic system consisting of HDVs and AVs in a ring road.
 
-
-Schematic for the mixed traffic system is as follows.
+A schematic diagram for the mixed traffic system is as follows.
 
 <img src="docs/img/system_schematic_1AV.PNG" align="center" width="60%"/>
 
