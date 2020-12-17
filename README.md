@@ -1,8 +1,11 @@
 # Modeling and Control of Mixed Traffic Flow
 
-In this project, dynamical modeling and fundamental properties are investigated for ring-road mixed traffic systems with Connected and Autonomous Vehicle (CAVs) and human-driven vehicles (HDVs). Optimal control strategies are designed for CAVs with a system-level consideration, i.e., dissipating traffic waves and improving the performance of the entire mixed traffic flow. 
+In this project, dynamical modeling and fundamental properties are investigated for ring-road mixed traffic systems with Connected and Autonomous Vehicle (CAVs) and human-driven vehicles (HDVs). Optimal control strategies are designed for CAVs with a system-level consideration, i.e., 
 
-An existing solver, [MOSEK](https://www.mosek.com/), is needed to be installed first to numerically solve the optimization problem and obtain the optimal controller.
+1. dissipating traffic waves and 
+2. improving the performance of the entire mixed traffic flow. 
+
+The Modeling package, [YALMIP](https://yalmip.github.io/), and the optimization solver, [MOSEK](https://www.mosek.com/), are needed to solve the semidefinite program in controller synthesis
 
 ## Smoothing Traffic Flow via AV
 
