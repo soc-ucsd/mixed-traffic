@@ -1,4 +1,4 @@
-# MCMT
+# Modeling and Control of Mixed Traffic Flow
 
 In this project, dynamical modeling and fundamental properties are investigated for ring-road mixed traffic systems with Connected and Autonomous Vehicle (CAVs) and human-driven vehicles (HDVs). Optimal control strategies are designed for CAVs with a system-level consideration, i.e., dissipating traffic waves and improving the performance of the entire mixed traffic flow. 
 
