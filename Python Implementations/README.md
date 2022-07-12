@@ -20,3 +20,6 @@ In order to properly utilize CVXPY, you will need to install the [MOSEK solver](
 
 
 Alongside installing the MOSEK solver, it is required to get a free academic [MOSEK license](https://www.mosek.com/products/academic-licenses/) which is valid for 365 days. This will give you a 'mosek.lic' file, which needs to be placed in a folder titled 'mosek' in the user directory. 
+
+## Animations
+Some of the files listed here have accompanying animations to support the code result. In order to run this animation, you will need to install [matplotlib](https://matplotlib.org/stable/users/installing/index.html), which can be done with pip.
