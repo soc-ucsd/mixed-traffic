@@ -1,4 +1,4 @@
-# Welcome to Mixed traffic control’s documentation!
+# Welcome
 
 ## Indices and tables
 
