@@ -33,5 +33,6 @@ There is one AV: dissipating traffic wave
 This folder contains files for test cases.
 
 ## Reference
-Wang, J., Zheng, Y., Xu, Q., Wang, J., & Li, K. (2020). Controllability Analysis and Optimal Control of Mixed Traffic Flow with Human-driven and Autonomous Vehicles. IEEE Transactions on Intelligent Transportation Systems, 1-15.[pdf] Wang, J., Zheng, Y., Xu, Q., Wang, J., & Li, K. (2019, June). Controllability analysis and optimal controller synthesis of mixed traffic systems. 
-In 2019 IEEE Intelligent Vehicles Symposium (IV) (pp. 1041-1047). IEEE. [pdf] [poster]
+- Wang, J., Zheng, Y., Xu, Q., Wang, J., & Li, K. (2020). Controllability Analysis and Optimal Control of Mixed Traffic Flow with Human-driven and Autonomous Vehicles. IEEE Transactions on Intelligent Transportation Systems, 1-15.[[pdf](https://wangjw18.github.io/files/2020-arXiv.pdf)]
+- Wang, J., Zheng, Y., Xu, Q., Wang, J., & Li, K. (2019, June). Controllability analysis and optimal controller synthesis of mixed traffic systems. 
+In 2019 IEEE Intelligent Vehicles Symposium (IV) (pp. 1041-1047). IEEE. [[pdf](https://wangjw18.github.io/files/2020-IFAC.pdf)] [[slides](https://wangjw18.github.io/files/2020-IFAC-slides.pdf)]
