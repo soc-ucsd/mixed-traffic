@@ -1,4 +1,6 @@
 site_name: Mixed Traffic Control
+site_author: Yanzhi Yao
+repo_url: https://github.com/soc-ucsd/mixed-traffic
 
 nav:
     - Welcome: index.md
