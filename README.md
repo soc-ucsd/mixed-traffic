@@ -20,17 +20,17 @@ Although large-scale numerical simulations and small-scale experiments have show
 
 A schematic diagram for the mixed traffic system is as follows.
 <p align="center">
-<img src="docs/img/system_schematic_1AV.PNG" align="center" width="50%"/>
+<img src="images/img/system_schematic_1AV.PNG" align="center" width="50%"/>
 </p>
 Two demonstrations are shown below:
 
 <p align="center">
-<img src="docs/img/all_HDVs.gif" align="center" width="70%"/>
+<img src="images/img/all_HDVs.gif" align="center" width="70%"/>
 </p>
 <p align="center">All the vehicles are HDVs: traffic wave emerges      </p>
 
 <p align="center">
-<img src="docs/img/one_AV.gif" align="center" width="70%"/>
+<img src="images/img/one_AV.gif" align="center" width="70%"/>
 </p>
 
 <p align="center">There is one AV: dissipating traffic wave         </p>
@@ -44,7 +44,7 @@ Due to the limit of communication abilities in practice, the CAV can only receiv
 
 Here is an illustration for structured constraints under limited communication abilities.
 <p align="center">
-<img src="docs/img/structured_control.PNG" align="center" width="50%"/>
+<img src="images/img/structured_control.PNG" align="center" width="50%"/>
 </p>
 
 ### References
@@ -56,11 +56,11 @@ Here is an illustration for structured constraints under limited communication a
 
 In mixed traffic flow, the prevailing platooning of multiple AVs is not the only choice for cooperative formation. We re-design the control strategies of AVs in different formations and investigate the optimal formation of multiple AVs using a set-function optimization perspective. Two predominant optimal formations, i.e., **uniform distribution** and **platoon formation**, emerges from extensive numerical experiments.
 <p align="center">
-<img src="docs/img/uniform_distribution.gif" align="center" width="70%"/>
+<img src="images/img/uniform_distribution.gif" align="center" width="70%"/>
 </p>
 <p align="center">Uniform Distribution</p>
 <p align="center">
-<img src="docs/img/platoon_formation.gif" align="center" width="70%"/>
+<img src="images/img/platoon_formation.gif" align="center" width="70%"/>
 </p>
 <p align="center">Platoon Formation</p>
 
