@@ -1,7 +1,7 @@
 site_name: Mixed Traffic Control
 site_author: Yanzhi Yao
 repo_url: https://github.com/soc-ucsd/mixed-traffic
-
+edit_uri: edit/main/docs
 nav:
     - Welcome: index.md
     - Smoothing traffic flow: smoothing_traffic_flow.md
