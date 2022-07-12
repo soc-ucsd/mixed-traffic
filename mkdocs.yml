@@ -9,3 +9,5 @@ nav:
     - Cooperative formation multiple: cooperative_formation_multiple.md
 theme:
   name: material
+   icon:
+    repo: fontawesome/brands/github
