@@ -1,6 +1,6 @@
 import numpy as np
 import cvxpy as cp
-from pattern_invariance import *
+from .pattern_invariance import *
 
 def optsi (A,B1,B2,K_Pattern,Q,R) :
     # For a given pattern of K, calculate the optimal feedback gain using sparsity invirance
@@ -21,7 +21,7 @@ def optsi (A,B1,B2,K_Pattern,Q,R) :
     #                W[m:,m:] == X,    - block diagonal X
 
     constraints = []
-
+    
     for i in range(n):
         for j in range(i,n):
             if Rp[i,j] == 0:
@@ -32,13 +32,14 @@ def optsi (A,B1,B2,K_Pattern,Q,R) :
         for j in range(n):
             if Tp[i,j] == 0:
                 constraints += [W[i,m+j] == 0]
-  
-    # constraint
+                constraints += [W[m+j,i] == 0]
 
+    # constraint
     objective    = cp.Minimize(cp.trace(Q @ W[m:,m:]) + cp.trace(R @ W[0:m,0:m]))
     constraints += [(A@W[m:,m:] - B2@W[0:m,m:]) + (A@W[m:,m:] - B2@W[0:m,m:]).T + B1@(B1).T << 0]
     constraints += [ W[m:,m:] - epsilon*np.identity(n) >> 0]
     constraints += [W >> 0]
+
 
     # constraints  = [-((A@X - B@Z) + (A@X - B@Z).T + H@(H).T) >> 0]
     # constraints += [X - epsilon*np.identity(n) >> 0]
