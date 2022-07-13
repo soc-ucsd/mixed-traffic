@@ -18,7 +18,7 @@ def pattern_generation(N, AV_number, CR):
         else:
             K_Pattern = np.zeros((2, 2 * N))
             # row 1
-            for i in range(np.floor(N / 2) - CR, np.floor(N / 2) + CR + 1):
+            for i in range(int(np.floor(N / 2) - CR), int(np.floor(N / 2) + CR + 1)):
                 K_Pattern[0, 2 * i - 2 : 2 * i] = [1, 1]
 
             # row 2
