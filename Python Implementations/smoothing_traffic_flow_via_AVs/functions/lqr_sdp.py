@@ -1,6 +1,6 @@
 ##This code is adapted from MATLAB code https://github.com/wangjw18/mixed-traffic
 
-from ring_traffic_model import *
+from .ring_traffic_model import *
 import cvxpy as cp
 import mosek as msk
 
@@ -37,7 +37,7 @@ def lqr_sdp(N,s_star,gamma_s,gamma_v,gamma_u,AV_number):
     # constraints += [np.block([[Y, Z], [Z.T, X]]) >> 0]
     
     prob = cp.Problem(objective, constraints)
-    prob.solve(solver = cp.MOSEK)
+    prob.solve(solver = cp.MOSEK, verbose = True)
     
     Xd = W[m:,m:].value
     Zd = W[0:m,m:].value
