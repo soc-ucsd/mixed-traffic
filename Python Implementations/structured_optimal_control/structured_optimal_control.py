@@ -6,11 +6,11 @@
 # Key parameters
 import numpy as np
 import math
-from lqrsdp import *
-from optsi import *
-from pattern_generation import *
-from pattern_invariance import *
-from system_model import *
+from functions.lqrsdp import lqrsdp
+from functions.optsi import optsi
+from functions.pattern_generation import pattern_generation
+from functions.pattern_invariance import pattern_invariance
+from functions.system_model import system_model
 
 comm_limited = 1 # whether there is communication constraint
 CR = 5 # communication range if there is communication constraint
@@ -27,7 +27,7 @@ s_go = 30 + 10 * np.ones((N, 1)) * 0.5 #np.random.random((N, 1))
 v_star = V_star * np.ones((N, 1))
 s_star = np.arccos(1 - v_star / v_max * 2) / math.pi * (s_go - s_st) + s_st
 
-AV_number = 2
+AV_number = 1
 
 # Cost Function Weight
 gamma_s = 0.03
@@ -41,4 +41,6 @@ if comm_limited:
     [K, Info] = optsi(A, B1, B2, K_Pattern, Q, R)
 else:
     K = lqrsdp(A, B1, B2, Q, R)
+
 np.set_printoptions(threshold = np.inf, precision=4)
+print(K)
