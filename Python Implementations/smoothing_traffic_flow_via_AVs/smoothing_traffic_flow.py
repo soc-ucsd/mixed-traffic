@@ -1,6 +1,6 @@
 ##This code is adapted from MATLAB code https://github.com/wangjw18/mixed-traffic
 
-from lqr_sdp import *
+from functions.lqr_sdp import lqr_sdp
 import array as arr
 import math
 import numpy as np
@@ -28,7 +28,7 @@ spacing_or_velocity =  1
 mix = 1
 
 # 1.Optimal Control  2.FollowerStopper  3.PI with Saturation
-controllerType = 2
+controllerType = 1
 
 
 brakeID = 6 - 1
@@ -287,8 +287,7 @@ for k in range(NumStep):
     V_avg[k] = np.mean(S[k,:,1])
 
     
-        
-        
+   
 #Settling Time
 final_velocity = V_avg[NumStep-2]
 above_2_percent = final_velocity*1.03
