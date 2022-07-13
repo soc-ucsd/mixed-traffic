@@ -5,8 +5,8 @@ import matplotlib.pyplot as plt
 from matplotlib.collections import LineCollection
 from matplotlib.colors import LinearSegmentedColormap
 from matplotlib.animation import FuncAnimation
-from ReturnObjectiveValue import *
-from getAVID import *
+from functions.getAVID import getAVID
+from functions.ReturnObjectiveValue import ReturnObjectiveValue
 
 # In[1] 
 ''' Key Parameters'''
