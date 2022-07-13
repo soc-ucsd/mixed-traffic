@@ -1,46 +1,51 @@
-## Description
-# Design a structured optimal controller under communication constraint
-# Correspond to Section IV in the following paper
-# Controllability Analysis and Optimal Control of Mixed Traffic Flow With Human-Driven and Autonomous Vehicles
-
-# Key parameters
 import numpy as np
 import math
-from functions.lqrsdp import lqrsdp
-from functions.optsi import optsi
-from functions.pattern_generation import pattern_generation
-from functions.pattern_invariance import pattern_invariance
-from functions.system_model import system_model
 
-comm_limited = 1 # whether there is communication constraint
-CR = 5 # communication range if there is communication constraint
+def system_model(N, AV_number, alpha, beta, v_max, s_st,
+                 s_go, s_star, gamma_s, gamma_v, gamma_u):
+    alpha1 = alpha * v_max / 2 * math.pi / (s_go - s_st) * np.sin(np.pi * (s_star - s_st) / (s_go - s_st))
+    alpha2 = alpha + beta
+    alpha3 = beta
 
-## Parameters
+    C1 = np.array([[0, -1], [0, 0]])
+    C2 = np.array([[0, 1], [0, 0]])
+    pos1 = 1
+    pos2 = N
 
-N = 20
-V_star = 15
-alpha = 0.6 + 0.1 - 0.2 * np.ones((N, 1)) * 0.5 #np.random.random((N, 1))
-beta = 0.9 + 0.1 - 0.2 * np.ones((N, 1)) * 0.5  #np.random.random((N, 1))
-v_max = 30 * np.ones((N, 1))
-s_st = 5 * np.ones((N, 1))
-s_go = 30 + 10 * np.ones((N, 1)) * 0.5 #np.random.random((N, 1))
-v_star = V_star * np.ones((N, 1))
-s_star = np.arccos(1 - v_star / v_max * 2) / math.pi * (s_go - s_st) + s_st
+    # Y = AY + Bu
+    A = np.zeros((2 * N, 2 * N))
 
-AV_number = 1
+    for i in range(1, N):
+        A[(2 * i - 2): (2 * i), (2 * pos1 - 2): (2 * pos1)] = np.array([[0, -1], [alpha1[i - 1][0], -alpha2[i - 1][0]]])
+        A[(2 * i - 2): (2 * i), (2 * pos2 - 2): (2 * pos2)] = np.array([[0, 1], [0, alpha3[i - 1][0]]])
+        pos1 = pos1 + 1
+        pos2 = np.mod(pos2 + 1, N)
 
-# Cost Function Weight
-gamma_s = 0.03
-gamma_v = 0.15
-gamma_u = 1
 
-# Controller design
-A, B1, B2, Q, R = system_model(N, AV_number, alpha, beta, v_max, s_st, s_go, s_star, gamma_s, gamma_v, gamma_u)
-if comm_limited:
-    K_Pattern = pattern_generation(N,AV_number,CR)
-    [K, Info] = optsi(A, B1, B2, K_Pattern, Q, R)
-else:
-    K = lqrsdp(A, B1, B2, Q, R)
+    A[(2 * N - 2): (2 * N), (2 * pos1 - 2): (2 * pos1)] = C1
+    A[(2 * N - 2): (2 * N), (2 * pos2 - 2): (2 * pos2)] = C2
 
-np.set_printoptions(threshold = np.inf, precision=4)
-print(K)
+    # Controller
+    Q = np.zeros((2 * N, 2 * N))
+    for i in range(1, N + 1):
+        Q[2 * i - 2, 2 * i - 2] = gamma_s
+        Q[2 * i - 1, 2 * i - 1] = gamma_v
+
+    B2 = np.zeros((2 * N, AV_number))
+    B2[2 * N - 1, AV_number-1] = 1
+
+    if AV_number == 2:
+        AV2_Index = int(np.floor(N / 2))
+        A[(2 * AV2_Index - 2): (2 * AV2_Index), (2 * AV2_Index - 2): (2 * AV2_Index)] = C1
+        A[(2 * AV2_Index - 2): (2 * AV2_Index), (2 * AV2_Index - 4): (2 * AV2_Index - 2)] = C2
+        B2[2 * AV2_Index - 1, 0] = 1
+    # np.set_printoptions(threshold = np.inf, precision=4)
+    # print(B2)
+
+    B1 = np.zeros((2 * N, N))
+    for i in range(1, N + 1):
+        B1[2 * i - 1, i - 1] = 1
+
+    R = gamma_u * np.identity(AV_number)
+
+    return A,B1,B2,Q,R
