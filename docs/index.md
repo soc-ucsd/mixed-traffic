@@ -6,5 +6,4 @@
 * Structured optimal control
 * Cooperative formation multiple
 
-This is [an example]([http://example.com/](https://github.com/soc-ucsd/mixed-traffic/edit/main/docs/index.md) "Title") inline link.
-
+See my [About](/smoothing_traffic_flow.md/) page for details.   
