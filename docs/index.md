@@ -2,8 +2,7 @@
 
 ## Indices and tables
 
-* Smoothing traffic flow
-* Structured optimal control
-* Cooperative formation multiple
+* [Smoothing traffic flow](smoothing_traffic_flow.md)
+* [Structured optimal control](structured_optimal_control.md)
+* [Cooperative formation multiple](cooperative_formation_multiple.md)
 
-See my [About](smoothing_traffic_flow.md) page for details.   
