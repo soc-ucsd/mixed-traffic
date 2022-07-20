@@ -6,4 +6,4 @@
 * Structured optimal control
 * Cooperative formation multiple
 
-See my [About](/smoothing_traffic_flow.md/) page for details.   
+See my [About](smoothing_traffic_flow.md) page for details.   
