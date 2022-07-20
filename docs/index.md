@@ -1,6 +1,6 @@
 # Welcome to Mixed traffic control’s documentation!
 
-## Content
+## Contents
 
 * [Smoothing traffic flow](smoothing_traffic_flow.md)
 * [Structured optimal control](structured_optimal_control.md)
