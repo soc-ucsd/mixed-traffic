@@ -11,20 +11,30 @@ and reachability of a mixed traffic system consisting of HDVs and AVs in a ring 
 
 ### Matlab Implementation
 
+```matlab
+fs= 100;
+[filt_b, filt_a]= butter(5, [10 14]/fs*2);
+state_acquire= ACQUIRE_FCN('init', 'fs',fs);
+state_filter= [];
+t_start= clock;
+while etime(clock, t_start) < 10*60,
+  cnt_new= AQCQUIRE_FCN(state_acquire);
+  [cnt_new, state_filter]= online_filt(cnt_new, state_filter, filt_b, filt.a);
+  cnt= proc_appendCnt(cnt, cnt_new);
+  mrk= struct('fs',cnt.fs, 'pos',size(cnt.x,1));
+  epo= proc_segmentation(cnt, mrk, [-500 0]);
+  fv= proc_logarithm( proc_variance( epo ));
+  out= apply_separatingHyperplane(LDA, fv.x(:));
+  send_xml_udp('cl_output', out);
+end
+```
 
 
 
 ### Python Implementation
 
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+
 
 ## Animation
 Two demonstrations are shown below:    
