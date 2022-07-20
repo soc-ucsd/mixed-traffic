@@ -6,10 +6,14 @@ traffic system for its feedback. Therefore, it is important to consider the loca
 available information of the neighboring vehicles. 
 This leads to the notion of structured controller design.
 
-## Introduction
 ![Alt Text](images/structured_optimal_control/structured_control.png)
 
-## Implementation
+## Getting Started
+
+### Matlab Implementation
+
+
+### Python Implementation
 
     mkdocs.yml    # The configuration file.
     docs/
