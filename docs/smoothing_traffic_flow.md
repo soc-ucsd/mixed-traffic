@@ -33,7 +33,23 @@ end
 
 ### Python Implementation
 
-
+```python
+fs= 100;
+[filt_b, filt_a]= butter(5, [10 14]/fs*2);
+state_acquire= ACQUIRE_FCN('init', 'fs',fs);
+state_filter= [];
+t_start= clock;
+while etime(clock, t_start) < 10*60,
+  cnt_new= AQCQUIRE_FCN(state_acquire);
+  [cnt_new, state_filter]= online_filt(cnt_new, state_filter, filt_b, filt.a);
+  cnt= proc_appendCnt(cnt, cnt_new);
+  mrk= struct('fs',cnt.fs, 'pos',size(cnt.x,1));
+  epo= proc_segmentation(cnt, mrk, [-500 0]);
+  fv= proc_logarithm( proc_variance( epo ));
+  out= apply_separatingHyperplane(LDA, fv.x(:));
+  send_xml_udp('cl_output', out);
+end
+```
 
 
 ## Animation
