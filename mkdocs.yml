@@ -7,6 +7,13 @@ nav:
     - Smoothing traffic flow: smoothing_traffic_flow.md
     - Structured optimal control: structured_optimal_control.md
     - Cooperative formation multiple: cooperative_formation_multiple.md
+    
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
 theme:
   name: material
   icon:
