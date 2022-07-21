@@ -31,7 +31,7 @@ mix = 0;
 controllerType = 1;
 ```
 
-brakeID indicate the index of vehicle that will brake first (interuption happen). N indicate the total number of vehicle in the experiment. 
+brakeID indicate the index of vehicle that will brake first (interuption happen). N indicate the total number of vehicle in the experiment. s_star means the  equilibrium spacing of each vehicle.
 
 ```matlab
 brakeID = 6 - 1;
