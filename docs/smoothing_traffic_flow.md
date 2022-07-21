@@ -26,9 +26,7 @@ Key parameters setting. 'mix' is set to 0 by default, which means there's no AV.
 -3.PI with Saturation
 
 ```matlab
-% Mix or not
 mix = 0;
-% 1.Optimal Control  2.FollowerStopper  3.PI with Saturation
 controllerType = 1;
 ```
 
