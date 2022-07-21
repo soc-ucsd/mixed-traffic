@@ -21,9 +21,9 @@ addpath('_data');
 ```
 
 Key parameters setting. 'mix' is set to 0 by default, which means there's no AV. While 'mix = 1' means the mixed traffic scenario. 'controllerType' set the control strategies for mixed traffic control. 'controllerType' value to strategies:
-- 1-Optimal Control  
-- 2-FollowerStopper 
-- 3-PI with Saturation
+- 1.Optimal Control  
+- 2.FollowerStopper 
+- 3.PI with Saturation
 
 ```matlab
 mix = 0;
