@@ -40,7 +40,29 @@ brakeID = 6 - 1;
 N = 20;
 s_star = 20;
 ```
+ControllerType parameter setting:
 
+- gamma_s means the preference setting of vehicle spacing.
+- gamma_v means the preference setting of vehicle velocity.
+- gamma_u means the preference setting of vehivle input.
+```matlab
+if mix && controllerType == 1
+    %Cost Function Weight
+    gammaType = 1;
+    switch gammaType
+        case 1
+            gamma_s = 0.03;
+            gamma_v = 0.15;
+            gamma_u = 1;
+            
+        case 2
+            gamma_s = 3;
+            gamma_v = 15;
+            gamma_u = 1;
+    end
+    K = lqr_sdp(N,s_star,gamma_s,gamma_v,gamma_u,1);
+end
+```
 ### Python Implementation
 
 ```python
