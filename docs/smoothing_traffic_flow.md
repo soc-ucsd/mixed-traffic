@@ -70,6 +70,14 @@ alpha_k setting is only for FollowerStopper strategy.
 alpha_k = 0.6;
 ```
 
+Animation setting:
+```matlab
+%Animation
+velUpperBound = 15; % color
+velLowerBound = 8; % color
+vehicleSize = 12; % MarkerSize
+```
+
 Vehicle parameters setting. v_max indicate the maximum velocity the vehicle can reach. acel_max and decel_max indicate the maximum acceleration and amximun deacceleration rate respectively. The Driver model is set by using OVM model.
 ```matlab
 v_max = 30;
