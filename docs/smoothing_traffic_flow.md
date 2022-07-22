@@ -65,6 +65,25 @@ if mix && controllerType == 1
 end
 ```
 
+alpha_k setting is only for FollowerStopper strategy.
+```matlab
+alpha_k = 0.6;
+```
+
+Vehicle parameters setting. v_max indicate the maximum velocity the vehicle can reach. acel_max and decel_max indicate the maximum acceleration and The Driver model is set by using OVM model.
+```matlab
+v_max = 30;
+acel_max = 5;
+dcel_max = -5;
+
+%Driver Model: OVM
+alpha = 0.6;
+beta = 0.9;
+s_st = 5;
+s_go = 35;
+```
+
+
 
 ### Python Implementation
 
