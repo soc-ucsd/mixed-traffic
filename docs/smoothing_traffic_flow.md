@@ -69,6 +69,15 @@ alpha_k setting is only for FollowerStopper strategy.
 ```matlab
 alpha_k = 0.6;
 ```
+Actuation setting for when thr controller will be triggered.
+```matlab
+Circumference = s_star*N;
+if mix
+    ActuationTime = 0; 
+else
+    ActuationTime = 9999;
+end
+```
 
 Animation setting:
 ```matlab
