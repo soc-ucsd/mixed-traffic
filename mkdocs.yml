@@ -26,7 +26,6 @@ theme:
   name: material
   features:
     - navigation.tabs
-    - navigation.tabs.sticky
     - navigation.sections
     - navigation.expand
   language: en
