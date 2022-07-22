@@ -81,7 +81,6 @@ end
 
 Animation setting:
 ```matlab
-%Animation
 velUpperBound = 15; % color
 velLowerBound = 8; % color
 vehicleSize = 12; % MarkerSize
