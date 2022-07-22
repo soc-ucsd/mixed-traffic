@@ -27,6 +27,7 @@ theme:
   features:
     - navigation.tabs
     - navigation.tabs.sticky
+    - navigation.sections
   language: en
   icon:
     repo: fontawesome/brands/github
