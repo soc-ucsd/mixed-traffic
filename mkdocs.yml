@@ -24,6 +24,8 @@ markdown_extensions:
 # Configuration
 theme:
   name: material
+  features:
+    - navigation.tabs
   language: en
   icon:
     repo: fontawesome/brands/github
