@@ -26,6 +26,7 @@ theme:
   name: material
   features:
     - navigation.tabs
+    - navigation.tabs.sticky
   language: en
   icon:
     repo: fontawesome/brands/github
