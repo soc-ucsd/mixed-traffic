@@ -1,7 +1,14 @@
 site_name: Mixed Traffic Control
 site_author: Yanzhi Yao
+
+# Repository
+repo_name: soc-ucsd/mixed-traffic
 repo_url: https://github.com/soc-ucsd/mixed-traffic
 edit_uri: edit/main/docs
+
+# Copyright
+copyright: Copyright &copy; 2022 Yanzhi Yao
+
 nav:
     - Welcome: index.md
     - Smoothing traffic flow: smoothing_traffic_flow.md
@@ -14,6 +21,7 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
+# Configuration
 theme:
   name: material
   icon:
