@@ -91,7 +91,12 @@ s_st = 5;
 s_go = 35;
 ```
 
-
+Simulation setting:
+``` matlab
+TotalTime = 100;
+Tstep = 0.01;
+NumStep = TotalTime/Tstep;
+```
 
 ### Python Implementation
 
