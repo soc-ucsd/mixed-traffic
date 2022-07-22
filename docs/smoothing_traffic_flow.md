@@ -119,6 +119,15 @@ Safe distance setting. The minimum safe distance value is set to zero since the 
 sd = 0;
 ```
 
+Initial State for each vehicle
+```matlab
+S = zeros(NumStep,N,3);
+dev_s = 0;
+dev_v = 0;
+co_v = 1.0;
+v_ini = co_v*v_star; %Initial velocity
+```
+
 
 
 ### Python Implementation
