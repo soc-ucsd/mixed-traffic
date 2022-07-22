@@ -131,25 +131,33 @@ v_ini = co_v*v_star; %Initial velocity
 
 
 ### Python Implementation
+The Python implementation follows three main scenarios - 
 
+Scenario 1 is sharp braking at 20 seconds.
+
+Scenario 2 is random distribution of vehicles and uniform distribution of initial velocity.
+
+Scenario 3 is Experiment B of "Controllability Analysis and Optimal Control of Mixed Traffic Flow with Human-driven and Autonomous Vehicles".
+
+The implementation follows the MATLAB version closely, utilizing NumPy instead of MATLAB methods where appropriate. 
+
+###Functions
+There are two main functions in the Python implementation :
+
+1. lqr_sdp
 ```python
-fs= 100;
-[filt_b, filt_a]= butter(5, [10 14]/fs*2);
-state_acquire= ACQUIRE_FCN('init', 'fs',fs);
-state_filter= [];
-t_start= clock;
-while etime(clock, t_start) < 10*60,
-  cnt_new= AQCQUIRE_FCN(state_acquire);
-  [cnt_new, state_filter]= online_filt(cnt_new, state_filter, filt_b, filt.a);
-  cnt= proc_appendCnt(cnt, cnt_new);
-  mrk= struct('fs',cnt.fs, 'pos',size(cnt.x,1));
-  epo= proc_segmentation(cnt, mrk, [-500 0]);
-  fv= proc_logarithm( proc_variance( epo ));
-  out= apply_separatingHyperplane(LDA, fv.x(:));
-  send_xml_udp('cl_output', out);
-end
-```
+W = cp.Variable((m+n,m+n), symmetric=True)
+    #                W[0:m,0:m] == Y,
+    #                W[m:,0:m] == Z,
+    #                W[m:,m:] == X,
+    
+    objective    = cp.Minimize( cp.trace( Q@W[m:,m:] ) + cp.trace( R@W[0:m,0:m] ) )
+    constraints  = [(A@W[m:,m:] - B@W[0:m,m:]) + (A@W[m:,m:] - B@W[0:m,m:]).T + H@(H).T << 0]
+    constraints += [ W[m:,m:] - epsilon*np.identity(n) >> 0]
+    constraints += [W >> 0]
 
+```
+This code sets up our optimization problem, generating a
 
 ## Animation
 Two demonstrations are shown below:    
