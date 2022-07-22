@@ -10,7 +10,7 @@ and reachability of a mixed traffic system consisting of HDVs and AVs in a ring 
 ## Getting Started
 
 ### Matlab Implementation
-#### demo_smoothing traffic_flow
+#### demo_smoothing traffic_flow.m
 Add path and initialization
 ```matlab
 clc;
