@@ -44,7 +44,7 @@ ControllerType parameter setting:
 
 - gamma_s means the preference setting of vehicle spacing.
 - gamma_v means the preference setting of vehicle velocity.
-- gamma_u means the preference setting of vehivle input.
+- gamma_u means the preference setting of vehicle input.
 
 ```matlab
 if mix && controllerType == 1
@@ -70,7 +70,7 @@ alpha_k setting is only for FollowerStopper strategy.
 alpha_k = 0.6;
 ```
 
-Vehicle parameters setting. v_max indicate the maximum velocity the vehicle can reach. acel_max and decel_max indicate the maximum acceleration and The Driver model is set by using OVM model.
+Vehicle parameters setting. v_max indicate the maximum velocity the vehicle can reach. acel_max and decel_max indicate the maximum acceleration and amximun deacceleration rate respectively. The Driver model is set by using OVM model.
 ```matlab
 v_max = 30;
 acel_max = 5;
