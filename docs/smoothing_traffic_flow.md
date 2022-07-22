@@ -106,6 +106,17 @@ Tstep = 0.01;
 NumStep = TotalTime/Tstep;
 ```
 
+The actuation setting set the time when the controller will be engaged.
+```matlab
+Circumference = s_star*N;
+if mix
+    ActuationTime = 0;  %When will the controller work
+else
+    ActuationTime = 9999;
+end
+```
+
+
 ### Python Implementation
 
 ```python
