@@ -106,6 +106,20 @@ else
 end
 ```
 
+Equilibrium state setting.
+```matlab
+s_star = Circumference/N;
+v_star = v_max/2*(1-cos(pi*(s_star-s_st)/(s_go-s_st))); %THEORETICALLY equilibrium velocity
+s_ctr = s_star*1.0;
+v_ctr = v_max/2*(1-cos(pi*(s_ctr-s_st)/(s_go-s_st)));
+```
+
+Safe distance setting. The minimum safe distance value is set to zero since the vehicle length is ignored.
+```matlab
+sd = 0;
+```
+
+
 
 ### Python Implementation
 
