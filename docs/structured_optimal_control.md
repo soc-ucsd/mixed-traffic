@@ -22,9 +22,49 @@ addpath('_fcn');
 
 Key parameters setting. The comm_limited indicated that whether there is communication constraint. While the CR indicate the communication range if there is communication constraint.
 ```matlab
-comm_limited = 1; % whether there is communication constraint
-CR = 5; % communication range if there is communication constraint
+comm_limited = 1;
+CR = 5; 
 ```
+
+Experiment parameter setting. N indicate the total number of vehicle in the experiment.
+
+```matlab
+N = 20;
+V_star = 15;
+
+alpha  = 0.6+0.1-0.2*rand(N,1);
+beta   = 0.9+0.1-0.2*rand(N,1);
+v_max  = 30*ones(N,1);
+s_st   = 5*ones(N,1);
+s_go   = 30+10*rand(N,1);
+v_star = V_star*ones(N,1);
+s_star = acos(1-v_star./v_max*2)/pi.*(s_go-s_st)+s_st;
+
+AV_number = 1;
+```
+
+Cost Function Weight Setting.
+
+```matlab
+gamma_s = 0.03;
+gamma_v = 0.15;
+gamma_u = 1;
+```
+
+Controller design.
+
+```matlab
+[A,B1,B2,Q,R] = system_model(N,AV_number,alpha,beta,v_max,s_st,s_go,s_star,gamma_s,gamma_v,gamma_u);
+
+if comm_limited
+    K_Pattern = pattern_generation(N,AV_number,CR);
+    [K,Info] = optsi(A,B1,B2,K_Pattern,Q,R);
+else
+    K = lqrsdp(A,B1,B2,Q,R);
+end
+
+```
+
 
 ### Python Implementation
 
