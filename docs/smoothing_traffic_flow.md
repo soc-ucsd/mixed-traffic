@@ -10,7 +10,10 @@ and reachability of a mixed traffic system consisting of HDVs and AVs in a ring 
 ## Getting Started
 
 ### Matlab Implementation
-#### demo_smoothing traffic_flow.m
+
+#### Main File
+
+##### demo_smoothing traffic_flow.m
 Add path and initialization
 ```matlab
 clc;
@@ -127,7 +130,7 @@ dev_v = 0;
 co_v = 1.0;
 v_ini = co_v*v_star; %Initial velocity
 ```
-
+#### Functions
 
 
 ### Python Implementation
@@ -141,7 +144,7 @@ Scenario 3 is Experiment B of "Controllability Analysis and Optimal Control of M
 
 The implementation follows the MATLAB version closely, utilizing NumPy instead of MATLAB methods where appropriate. 
 
-###Functions
+#### Functions
 There are two main functions in the Python implementation :
 
 1. lqr_sdp
