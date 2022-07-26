@@ -68,6 +68,193 @@ else
 end
 
 ```
+#### system_model.m
+```matlab
+function [A,B1,B2,Q,R] = system_model(N,AV_number,alpha,beta,v_max,s_st,s_go,s_star,gamma_s,gamma_v,gamma_u)
+
+
+alpha1 = alpha.*v_max/2*pi./(s_go-s_st).*sin(pi*(s_star-s_st)./(s_go-s_st));
+alpha2 = alpha+beta;
+alpha3 = beta;
+
+C1 = [0,-1;0,0];
+C2 = [0,1;0,0];
+
+
+pos1 = 1;
+pos2 = N;
+
+%Y = AY+Bu
+A = zeros(2*N,2*N);
+
+for i=1:(N-1)
+    A((2*i-1):(2*i),(2*pos1-1):(2*pos1))=[0,-1;alpha1(i),-alpha2(i)];
+    A((2*i-1):(2*i),(2*pos2-1):(2*pos2))=[0,1;0,alpha3(i)];
+    pos1 = pos1+1;
+    pos2 = mod(pos2+1,N);
+end
+A((2*N-1):(2*N),(2*pos1-1):(2*pos1))=C1;
+A((2*N-1):(2*N),(2*pos2-1):(2*pos2))=C2;
+%Controller
+
+Q = zeros(2*N);
+for i=1:N
+    Q(2*i-1,2*i-1) = gamma_s;
+    Q(2*i,2*i) = gamma_v;
+end
+
+B2 = zeros(2*N,AV_number);
+B2(2*N,AV_number) = 1;
+if AV_number == 2
+    AV2_Index = floor(N/2);
+    A((2*AV2_Index-1):(2*AV2_Index),(2*AV2_Index-1):(2*AV2_Index))=C1;
+    A((2*AV2_Index-1):(2*AV2_Index),(2*AV2_Index-3):(2*AV2_Index-2))=C2;
+    B2(2*AV2_Index,1) = 1;
+end
+
+B1 = zeros(2*N,N);
+for i=1:N
+    B1(2*i,i) = 1;
+end
+
+R = gamma_u*eye(AV_number,AV_number);
+
+
+end
+
+```
+
+
+#### pattern_generation.m
+
+
+```matlab
+function [ K_Pattern ] = pattern_generation( N,AV_number,CR )
+switch AV_number
+    case 1
+        K_Pattern = zeros(1,2*N);
+        for i = 1:CR
+            K_Pattern(1,2*i-1:2*i) = [1,1];
+        end
+        for i = N-CR : N-1
+            K_Pattern(1,2*i-1:2*i) = [1,1];
+        end
+        K_Pattern(1,2*N-1:2*N) = [1,1];
+    case 2
+        if CR>=N-floor(N/2)
+            K_Pattern = ones(2,2*N);
+        else
+            K_Pattern = zeros(2,2*N);
+            % row 1
+            for i = floor(N/2)-CR : floor(N/2)+CR
+                K_Pattern(1,2*i-1:2*i) = [1,1];
+            end
+            % row 2
+            
+            for i = 1:CR
+                K_Pattern(2,2*i-1:2*i) = [1,1];
+            end
+            for i = N-CR : N-1
+                K_Pattern(2,2*i-1:2*i) = [1,1];
+            end
+            K_Pattern(2,2*N-1:2*N) = [1,1];
+        end
+        
+end
+
+```
+
+#### lqrsdp.m
+
+```matlab
+function [K_Opt,Info] = optsi(A,B1,B2,K_Pattern,Q,R)
+% For a given pattern of K, calculate the optimal feedback gain using
+% sparsity invirance
+% A: system matrix;  B1: distrubance matrix;  B2: control input matrix;
+
+n = size(A,1);
+m = size(B2,2); % number of driver nodes
+epsilon = 1e-5;
+
+%% Sparsity invariance
+Tp = K_Pattern;
+Rp = pattern_invariance(Tp);
+
+%% variables
+X = sdpvar(n);               %% block diagonal X
+for i = 1:n
+    for j = i:n
+       if Rp(i,j) == 0
+           X(i,j) = 0; X(j,i) = 0;
+       end
+    end
+end
+
+Z = sdpvar(m,n);        %% Matrix Z has sparsity pattern in K_Pattern
+for i = 1:m
+    for j = 1:n
+       if Tp(i,j) == 0
+           Z(i,j) = 0;
+       end
+    end
+end
+Y = sdpvar(m);
+%% constraint
+
+Const = [X-epsilon*eye(n) >= 0, [Y Z; Z' X] >= 0,... 
+    (A*X-B2*Z)+(A*X-B2*Z)'+B1*B1' <= 0];
+
+%% cost function
+
+Obj = trace(Q*X)+trace(R*Y);
+
+%% solution via mosek
+ops = sdpsettings('solver','mosek');
+Info = optimize(Const,Obj,ops);
+X1 = value(X);
+Z1 = value(Z);
+K_Opt = Z1*X1^(-1);
+
+
+end
+
+```
+
+#### pattern_invariance.m
+
+```matlab
+function [ X ] = pattern_invariance( S )
+% Generate a maximally sparsity-wise invariant (MSI) subplace with respect to X
+% See Section IV of the following paper
+% "On Separable Quadratic Lyapunov Functions for Convex Design of Distributed Controllers"
+
+m = size(S,1);
+n = size(S,2);
+X = ones(n,n);
+
+% Analytical solution with complexity mn^2
+for i = 1:m
+        for k = 1:n
+                if S(i,k)==0
+                        for j = 1:n
+                                if S(i,j) == 1
+                                        X(j,k) = 0;
+                                end
+                        end
+                end
+        end
+end
+
+% symmetric part
+Xu = triu(X').*triu(X);
+X  = Xu + Xu';
+X  = full(spones(X));
+
+end
+
+```
+
+
 
 
 ### Python Implementation
