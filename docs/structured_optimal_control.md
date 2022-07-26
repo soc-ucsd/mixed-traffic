@@ -278,6 +278,14 @@ There is one AV: dissipating traffic wave
 ![Alt Text](images/smoothing_traffic_flow/smoothing_traffic_flow_all_HDVs.gif)
 
 ## Experiment results
+Two demonstrations are shown below:    
+
+All the vehicles are HDVs: traffic wave emerges
+![Alt Text](images/smoothing_traffic_flow/smoothing_traffic_flow_one_AV.gif)
+
+There is one AV: dissipating traffic wave
+![Alt Text](images/smoothing_traffic_flow/smoothing_traffic_flow_all_HDVs.gif)
+
 This folder contains files for test cases.
 
 ## Reference

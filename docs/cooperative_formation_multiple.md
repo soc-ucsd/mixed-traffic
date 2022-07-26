@@ -124,7 +124,8 @@ beta   = 1.5;
 * `mkdocs build` - Build the documentation site.
 * `mkdocs -h` - Print help message and exit.
 
-## Animation
+
+## Experiment results
 Two demonstrations are shown below:    
 
 Uniform Distribution:
@@ -133,7 +134,6 @@ Uniform Distribution:
 Platoon Formation:
 ![Alt Text](images/cooperative_formation_multiple/uniform_distribution.gif)
 
-## Experiment results
 This folder contains files for test cases.
 
 ## Reference

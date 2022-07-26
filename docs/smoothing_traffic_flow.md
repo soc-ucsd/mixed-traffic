@@ -159,7 +159,8 @@ W = cp.Variable((m+n,m+n), symmetric=True)
 ```
 This code sets up our optimization problem, generating a
 
-## Animation
+
+## Experiment results
 Two demonstrations are shown below:    
 
 All the vehicles are HDVs: traffic wave emerges
@@ -168,7 +169,6 @@ All the vehicles are HDVs: traffic wave emerges
 There is one AV: dissipating traffic wave
 ![Alt Text](images/smoothing_traffic_flow/smoothing_traffic_flow_all_HDVs.gif)
 
-## Experiment results
 This folder contains files for test cases.
 
 ## Reference
