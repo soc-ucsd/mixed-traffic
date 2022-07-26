@@ -10,6 +10,88 @@ and reachability of a mixed traffic system consisting of HDVs and AVs in a ring 
 ## Getting Started
 
 ### Matlab Implementation
+#### demo_cooperative_formation.m
+Add path and initialization
+```matlab
+clc;
+clear;
+close all;
+
+addpath('_fcn');
+addpath('_data');
+
+```
+
+Key parameters setting. N indicate the total number of vehicle in the experiment. brake_ID means the Position of the perturbation. 
+platoon_bool indicate that if the Autonomous vehicles formation. (If they are lined up in platoon.)
+
+
+```matlab
+N = 20;
+AV_number = 0; % 0 or 1 or 2 or 4
+platoon_bool= 0;
+brakeID = 15;
+
+```
+
+Parameter Setting.
+``` matlab
+if AV_number == 0
+    mix = 0;
+    ActuationTime = 9999;
+else
+    mix = 1;
+end
+
+ID = zeros(1,N); %0. Manually Driven  1. Controller
+if mix
+    ActuationTime = 0;
+    % Define the spatial formation of the AVs
+    switch AV_number
+        case 4
+            if platoon_bool
+                ID(9) = 1;
+                ID(10) = 1;
+                ID(11) = 1;
+                ID(12) = 1;
+            else
+                ID(3) = 1;
+                ID(8) = 1;
+                ID(13) = 1;
+                ID(18) = 1;
+            end
+        case 2
+            if platoon_bool
+                ID(10) = 1;
+                ID(11) = 1;
+                
+            else
+                ID(5) = 1;
+                ID(15) = 1;
+            end
+        case 1
+            ID(20) = 1;
+    end
+    
+end
+
+```
+
+Controller parameters setting.
+```matlab
+gammaType = 2;
+
+v_star = 15;
+```
+
+OVM parameter
+```matlab
+s_star = 20;
+v_max  = 30;
+s_st   = 5;
+s_go   = 35;
+```
+
 
 
 ### Python Implementation
