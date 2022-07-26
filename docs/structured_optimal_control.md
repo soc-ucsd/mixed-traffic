@@ -11,7 +11,20 @@ This leads to the notion of structured controller design.
 ## Getting Started
 
 ### Matlab Implementation
+#### structured_optimal_control.m
+Add path and initialization
+```matlab
+clc;
+clear;
+close all;
+addpath('_fcn');
+```
 
+Key parameters setting. The comm_limited indicated that whether there is communication constraint. While the CR indicate the communication range if there is communication constraint.
+```matlab
+comm_limited = 1; % whether there is communication constraint
+CR = 5; % communication range if there is communication constraint
+```
 
 ### Python Implementation
 
