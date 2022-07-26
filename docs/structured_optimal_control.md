@@ -11,7 +11,10 @@ This leads to the notion of structured controller design.
 ## Getting Started
 
 ### Matlab Implementation
-#### structured_optimal_control.m
+
+#### Main File
+
+##### structured_optimal_control.m
 Add path and initialization
 ```matlab
 clc;
@@ -68,7 +71,7 @@ else
 end
 
 ```
-#### system_model.m
+##### system_model.m
 ```matlab
 function [A,B1,B2,Q,R] = system_model(N,AV_number,alpha,beta,v_max,s_st,s_go,s_star,gamma_s,gamma_v,gamma_u)
 
@@ -125,7 +128,7 @@ end
 ```
 
 
-#### pattern_generation.m
+##### pattern_generation.m
 
 
 ```matlab
@@ -164,7 +167,7 @@ end
 
 ```
 
-#### lqrsdp.m
+##### lqrsdp.m
 
 ```matlab
 function [K_Opt,Info] = optsi(A,B1,B2,K_Pattern,Q,R)
@@ -220,7 +223,7 @@ end
 
 ```
 
-#### pattern_invariance.m
+##### pattern_invariance.m
 
 ```matlab
 function [ X ] = pattern_invariance( S )
@@ -259,6 +262,9 @@ end
 
 ### Python Implementation
 
+#### Main File
+
+
     mkdocs.yml    # The configuration file.
     docs/
         index.md  # The documentation homepage.
@@ -267,6 +273,9 @@ end
 * `mkdocs serve` - Start the live-reloading docs server.
 * `mkdocs build` - Build the documentation site.
 * `mkdocs -h` - Print help message and exit.
+
+#### Functions
+
 
 
 ## Experiment results

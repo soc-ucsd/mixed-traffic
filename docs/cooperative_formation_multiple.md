@@ -10,7 +10,10 @@ and reachability of a mixed traffic system consisting of HDVs and AVs in a ring 
 ## Getting Started
 
 ### Matlab Implementation
-#### demo_cooperative_formation.m
+
+#### Main File
+
+##### demo_cooperative_formation.m
 Add path and initialization
 ```matlab
 clc;
@@ -115,6 +118,9 @@ beta   = 1.5;
 
 ### Python Implementation
 
+#### Main File
+ 
+
     mkdocs.yml    # The configuration file.
     docs/
         index.md  # The documentation homepage.
@@ -124,6 +130,7 @@ beta   = 1.5;
 * `mkdocs build` - Build the documentation site.
 * `mkdocs -h` - Print help message and exit.
 
+##### temp
 
 
 ## Experiment results
