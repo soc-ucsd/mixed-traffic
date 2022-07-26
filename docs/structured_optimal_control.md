@@ -44,6 +44,9 @@ AV_number = 1;
 ```
 
 Cost Function Weight Setting.
+- gamma_s means the preference setting of vehicle spacing.
+- gamma_v means the preference setting of vehicle velocity.
+- gamma_u means the preference setting of vehicle input.
 
 ```matlab
 gamma_s = 0.03;
