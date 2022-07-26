@@ -77,20 +77,39 @@ end
 
 ```
 
-Controller parameters setting.
+Controller parameters setting:
 ```matlab
 gammaType = 2;
 
 v_star = 15;
 ```
 
-OVM parameter
+
+OVM parameter setting:
 ```matlab
 s_star = 20;
 v_max  = 30;
 s_st   = 5;
 s_go   = 35;
 ```
+There are two type of parameters setting for OVM model in our experiments. Please use one type of setting 
+when running the simulation.
+
+- Type 1 alpha, beta seting is for describing the carfollowing behavior of HDVs.
+- Type 2 is another type of model parameter setting.
+
+```matlab
+%%%%% Type1 %%%%%%%
+alpha  = 0.6;
+beta   = 0.9;
+%%%%%%%%% Type2 %%%%%%%%%
+alpha  = 1.0;
+beta   = 1.5;
+```
+
+
+
+
 
 
 
