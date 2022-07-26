@@ -71,6 +71,9 @@ else
 end
 
 ```
+
+#### Functions
+
 ##### system_model.m
 ```matlab
 function [A,B1,B2,Q,R] = system_model(N,AV_number,alpha,beta,v_max,s_st,s_go,s_star,gamma_s,gamma_v,gamma_u)
