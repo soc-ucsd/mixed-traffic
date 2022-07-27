@@ -1,4 +1,4 @@
-# Structured optimal control
+# Structured Optimal Control
 
 Due to the limit of communication abilities in practice, 
 the CAV can only receive partial information of the global 
@@ -335,7 +335,7 @@ end
 
 
 
-## Experiment results
+## Experiment Results
 Two demonstrations are shown below:    
 
 All the vehicles are HDVs: traffic wave emerges
