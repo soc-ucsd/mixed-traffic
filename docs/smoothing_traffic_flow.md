@@ -175,5 +175,5 @@ There is one AV: dissipating traffic wave
 This folder contains files for test cases.
 
 ## Reference
-Zheng, Y., Wang, J., & Li, K. (2020). Smoothing traffic flow via control 
-of autonomous vehicles. IEEE Internet of Things Journal, 7(5), 3882-3896.[pdf](https://wangjw18.github.io/files/2018-arXiv.pdf)
+
+- Zheng, Y., Wang, J., & Li, K. (2020). Smoothing traffic flow via control of autonomous vehicles. *IEEE Internet of Things Journal*, *7*(5), 3882-3896.[[pdf](https://wangjw18.github.io/files/2018-arXiv.pdf)]
