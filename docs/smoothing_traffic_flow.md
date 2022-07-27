@@ -13,7 +13,7 @@ and reachability of a mixed traffic system consisting of HDVs and AVs in a ring 
 
 #### Main File
 
-##### demo_smoothing traffic_flow.m
+##### [demo_smoothing traffic_flow.m](index.md)
 Add path and initialization
 ```matlab
 clc;
