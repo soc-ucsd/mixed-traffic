@@ -146,5 +146,6 @@ Platoon Formation:
 This folder contains files for test cases.
 
 ## Reference
-Li, K., Wang, J., & Zheng, Y. (2020). Cooperative Formation of Autonomous Vehicles in Mixed Traffic Flow: Beyond Platooning. arXiv preprint arXiv:2009.04254.[pdf] Li, K., Wang, J., & Zheng, Y. (2020). 
-Optimal Formation of Autonomous Vehicles in Mixed Traffic Flow. In 21st IFAC World Congress. [pdf] [slides]
+
+- Li, K., Wang, J., & Zheng, Y. (2020). Cooperative Formation of Autonomous Vehicles in Mixed Traffic Flow: Beyond Platooning. *arXiv preprint arXiv:2009.04254*.[[pdf](https://wangjw18.github.io/files/2020-arXiv.pdf)]
+- Li, K., Wang, J., & Zheng, Y. (2020). Optimal Formation of Autonomous Vehicles in Mixed Traffic Flow. *In 21st IFAC World Congress*. [[pdf](https://wangjw18.github.io/files/2020-IFAC.pdf)] [[slides](https://wangjw18.github.io/files/2020-IFAC-slides.pdf)]
