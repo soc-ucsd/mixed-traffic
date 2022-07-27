@@ -14,7 +14,7 @@ This leads to the notion of structured controller design.
 
 #### Main File
 
-##### structured_optimal_control.m
+##### [structured_optimal_control.m](https://github.com/soc-ucsd/mixed-traffic/blob/main/structured_optimal_control/structured_optimal_control.m)
 Add path and initialization
 ```matlab
 clc;
@@ -74,7 +74,7 @@ end
 
 #### Functions
 
-##### system_model.m
+##### [system_model.m](https://github.com/soc-ucsd/mixed-traffic/blob/main/structured_optimal_control/_fcn/system_model.m)
 ```matlab
 function [A,B1,B2,Q,R] = system_model(N,AV_number,alpha,beta,v_max,s_st,s_go,s_star,gamma_s,gamma_v,gamma_u)
 
@@ -131,7 +131,7 @@ end
 ```
 
 
-##### pattern_generation.m
+##### [pattern_generation.m](https://github.com/soc-ucsd/mixed-traffic/blob/main/structured_optimal_control/_fcn/pattern_generation.m)
 
 
 ```matlab
@@ -170,7 +170,7 @@ end
 
 ```
 
-##### lqrsdp.m
+##### [lqrsdp.m](https://github.com/soc-ucsd/mixed-traffic/blob/main/structured_optimal_control/_fcn/lqrsdp.m)
 
 ```matlab
 function [K_Opt,Info] = optsi(A,B1,B2,K_Pattern,Q,R)
@@ -226,7 +226,7 @@ end
 
 ```
 
-##### pattern_invariance.m
+##### [pattern_invariance.m](https://github.com/soc-ucsd/mixed-traffic/blob/main/structured_optimal_control/_fcn/pattern_invariance.m)
 
 ```matlab
 function [ X ] = pattern_invariance( S )
@@ -259,7 +259,61 @@ X  = full(spones(X));
 end
 
 ```
+##### [optsi.m](https://github.com/soc-ucsd/mixed-traffic/tree/main/structured_optimal_control/_fcn)
 
+```matlab
+function [K_Opt,Info] = optsi(A,B1,B2,K_Pattern,Q,R)
+% For a given pattern of K, calculate the optimal feedback gain using
+% sparsity invirance
+% A: system matrix;  B1: distrubance matrix;  B2: control input matrix;
+
+n = size(A,1);
+m = size(B2,2); % number of driver nodes
+epsilon = 1e-5;
+
+%% Sparsity invariance
+Tp = K_Pattern;
+Rp = pattern_invariance(Tp);
+
+%% variables
+X = sdpvar(n);               %% block diagonal X
+for i = 1:n
+    for j = i:n
+       if Rp(i,j) == 0
+           X(i,j) = 0; X(j,i) = 0;
+       end
+    end
+end
+
+Z = sdpvar(m,n);        %% Matrix Z has sparsity pattern in K_Pattern
+for i = 1:m
+    for j = 1:n
+       if Tp(i,j) == 0
+           Z(i,j) = 0;
+       end
+    end
+end
+Y = sdpvar(m);
+%% constraint
+
+Const = [X-epsilon*eye(n) >= 0, [Y Z; Z' X] >= 0,... 
+    (A*X-B2*Z)+(A*X-B2*Z)'+B1*B1' <= 0];
+
+%% cost function
+
+Obj = trace(Q*X)+trace(R*Y);
+
+%% solution via mosek
+ops = sdpsettings('solver','mosek');
+Info = optimize(Const,Obj,ops);
+X1 = value(X);
+Z1 = value(Z);
+K_Opt = Z1*X1^(-1);
+
+
+end
+
+```
 
 
 
