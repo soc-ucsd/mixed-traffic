@@ -2,13 +2,13 @@
 
 ## Contents
 
-- [Smoothing traffic flow](smoothing_traffic_flow.md)
-    - [Getting started](smoothing_traffic_flow.md#Getting Started)
+- [Smoothing Traffic Flow](smoothing_traffic_flow.md)
+    - [Getting Started](smoothing_traffic_flow.md#Getting Started)
     - [Experiment Results](smoothing_traffic_flow.md#Experiment Results)
-* [Structured optimal control](structured_optimal_control.md)
-    - [Getting started](structured_optimal_control.md#Getting Started)
+* [Structured Optimal Control](structured_optimal_control.md)
+    - [Getting Started](structured_optimal_control.md#Getting Started)
     - [Experiment Results](structured_optimal_control.md#Experiment Results)
-* [Cooperative formation multiple](cooperative_formation_multiple.md)
-    - [Getting started](cooperative_formation_multiple.md#Getting Started)
+* [Cooperative Formation Multiple](cooperative_formation_multiple.md)
+    - [Getting Started](cooperative_formation_multiple.md#Getting Started)
     - [Experiment Results](cooperative_formation_multiple.md#Experiment Results)
 
