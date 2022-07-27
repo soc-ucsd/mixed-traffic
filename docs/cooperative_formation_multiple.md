@@ -13,7 +13,7 @@ and reachability of a mixed traffic system consisting of HDVs and AVs in a ring 
 
 #### Main File
 
-##### demo_cooperative_formation.m
+##### [demo_cooperative_formation.m](https://github.com/soc-ucsd/mixed-traffic/blob/main/cooperative_formation_multiple_AVs/demo_cooperative_formation.m)
 Add path and initialization
 ```matlab
 clc;
