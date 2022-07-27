@@ -5,7 +5,7 @@ a comprehensive theoretical understanding to smooth traffic flow via AVs is lack
 control-theoretic perspective, we establish analytical results on the controllability, stabilizability, 
 and reachability of a mixed traffic system consisting of HDVs and AVs in a ring road.
 
-![Alt Text](images/smoothing_traffic_flow/mixed_traffic_flow_schematic diagram.png)
+![Alt Text](images/cooperative_formation_multiple/cooperative_formation.png)
 
 ## Getting Started
 
