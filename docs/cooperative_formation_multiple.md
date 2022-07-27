@@ -132,6 +132,7 @@ beta   = 1.5;
 
 ##### temp
 
+#### Functions
 
 ## Experiment results
 Two demonstrations are shown below:    
