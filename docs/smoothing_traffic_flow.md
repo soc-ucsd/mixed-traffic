@@ -23,7 +23,9 @@ addpath('_fcn');
 addpath('_data');
 ```
 
-Key parameters setting. 'mix' is set to 0 by default, which means there's no AV. While 'mix = 1' means the mixed traffic scenario. 'controllerType' set the control strategies for mixed traffic control. 
+Key parameters setting:
+
+ 'mix' is set to 0 by default, which means there's no AV. While 'mix = 1' means the mixed traffic scenario. 'controllerType' set the control strategies for mixed traffic control. 
 
 'controllerType' value to strategies:
 
@@ -73,6 +75,9 @@ alpha_k setting is only for FollowerStopper strategy.
 alpha_k = 0.6;
 ```
 Animation setting:
+
+- velUpperBound means the upper bound vehicle speed. It was set to 15 m/s. Corresponding to the green color for Animation. 
+- velLowerBound indicate the lower bound vehicle speend. It was set to 8 m/s. Corresponding to the red color. 
 ```matlab
 velUpperBound = 15; % color
 velLowerBound = 8; % color
