@@ -76,8 +76,9 @@ alpha_k = 0.6;
 ```
 Animation setting:
 
-- velUpperBound means the upper bound vehicle speed. It was set to 15 m/s. Corresponding to the green color for Animation. 
-- velLowerBound indicate the lower bound vehicle speend. It was set to 8 m/s. Corresponding to the red color. 
+- velUpperBound means the upper bound of vehicle speed. It was set to 15 m/s. Corresponding to the green color for Animation. 
+- velLowerBound indicate the lower bound of vehicle speend. It was set to 8 m/s. Corresponding to the red color for Animation.
+- Vehicle size was set to 12 by default. 
 ```matlab
 velUpperBound = 15; % color
 velLowerBound = 8; % color
