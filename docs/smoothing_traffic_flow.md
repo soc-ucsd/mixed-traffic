@@ -78,20 +78,30 @@ Animation setting:
 
 - velUpperBound means the upper bound of vehicle speed. It was set to 15 m/s. Corresponding to the green color for Animation. 
 - velLowerBound indicate the lower bound of vehicle speend. It was set to 8 m/s. Corresponding to the red color for Animation.
-- Vehicle size was set to 12 by default. 
+- vehicle size was set to 12 by default. 
 ```matlab
 velUpperBound = 15; % color
 velLowerBound = 8; % color
 vehicleSize = 12; % MarkerSize
 ```
 
-Vehicle parameters setting. v_max indicate the maximum velocity the vehicle can reach. acel_max and decel_max indicate the maximum acceleration and amximun deacceleration rate respectively. The Driver model is set by using OVM model.
+Vehicle parameters setting:
+
+- v_max indicate the maximum velocity the vehicle can reach. acel_max and decel_max indicate the maximum acceleration and amximun deacceleration rate respectively. The Driver model is set by using OVM model.
+- acel_max and dcel_max indicate the maximum acceleration and mininmum acceleration.
 ```matlab
 v_max = 30;
 acel_max = 5;
 dcel_max = -5;
+```
 
-%Driver Model: OVM
+OVM Model setting:
+
+- alpha and beta was set to 0.6 and 0.9. Where alpha > 0 reflects the driver’s sensitivity to the difference between the current velocity and the spacing-dependent
+desired velocity V (si(t)), and beta > 0 reflects the driver’s
+sensitivity to the difference between the velocities of the front vehicle and the preceding vehicle
+
+```matlab
 alpha = 0.6;
 beta = 0.9;
 s_st = 5;
@@ -99,7 +109,8 @@ s_go = 35;
 ```
 
 Simulation setting:
-``` matlab
+
+```matlab
 TotalTime = 100;
 Tstep = 0.01;
 NumStep = TotalTime/Tstep;
