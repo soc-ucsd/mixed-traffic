@@ -7,14 +7,14 @@ import matplotlib.pyplot as plt
 from matplotlib.collections import LineCollection
 from matplotlib.colors import LinearSegmentedColormap
 from matplotlib.animation import FuncAnimation
-from functions.getAVID import getAVID
 from functions.ReturnObjectiveValue import ReturnObjectiveValue
+from functions.getPercentile import getAVIDPercentile
 
 # In[1] 
 ''' Key Parameters'''
 
 N = 70
-AV_number = 2 # 0 or 1 or 2 or 4
+AV_number = 70 # 0 or 1 or 2 or 4
 
 platoon_bool = 1 # 0 or 1
 
@@ -35,8 +35,7 @@ ID = np.zeros([N]) #0. Manually Driven  1. Controller
 
 if mix:
     ActuationTime = 0
-    ID = getAVID(ID, AV_number, platoon_bool)
-
+    ID = getAVIDPercentile(N, ID, AV_number)
 #Controller Parameter
 controllerType = 1
 
@@ -85,7 +84,7 @@ alpha_k = 0.6
 sd = 8 # minimum value is zero since the vehicle length is ignored
 
 #Simulation
-TotalTime = 100
+TotalTime = 200
 Tstep = 0.01
 NumStep = int(TotalTime/Tstep)
 #Scenario
@@ -232,19 +231,19 @@ for k in range(0,NumStep-2):
                 v_cmd[k+1] = beta_temp*(alpha_temp*v_target+(1-alpha_temp)*S[k,-2,1])+(1-beta_temp)*v_cmd[k]
                 u = alpha_k*(v_cmd[k+1]-S[k,-1,1])
             
-        #error might
-        t_x = np.nonzero(u>acel_max)
-        if np.all(t_x==0):
-            u[u>acel_max] = acel_max
-        elif np.all((np.nonzero(u<dcel_max))==0):
-            u[u<dcel_max] = dcel_max
-            
-        for i_AV in range(0,AV_number):
-            id_AV = AV_position[0][i_AV]
-            flag = (pow(S[k,id_AV,1],2)-pow(S[k,id_AV-1,1],2)) / 2 / (S[k,id_AV-1,0]-S[k,id_AV,0]-sd) > abs(dcel_max)
-            if (flag.any()):
-                u[i_AV] = dcel_max
-            S[k,id_AV,2] = u[i_AV]
+            #error might
+            t_x = np.nonzero(u>acel_max)
+            if np.all(t_x==0):
+                u[u>acel_max] = acel_max
+            elif np.all((np.nonzero(u<dcel_max))==0):
+                u[u<dcel_max] = dcel_max
+                
+            for i_AV in range(0,AV_number):
+                id_AV = AV_position[0][i_AV]
+                flag = (pow(S[k,id_AV,1],2)-pow(S[k,id_AV-1,1],2)) / 2 / (S[k,id_AV-1,0]-S[k,id_AV,0]-sd) > abs(dcel_max)
+                if (flag.any()):
+                    u[i_AV] = dcel_max
+                S[k,id_AV,2] = u[i_AV]
                 
 
 
@@ -293,63 +292,63 @@ print("Maximum Spacing in front of AV is ", round(max_space,2) )
 print("Average settled velocity is ", round(np.mean(S[(int((0.9*TotalTime)/Tstep)):,:,1]),2), " m/s")
 
 
-# spacing_or_velocity = 1 # 0 or 1 
-# #Display data
+spacing_or_velocity = 1 # 0 or 1 
+#Display data
 
-# fig = plt.figure()
-# x = np.arange(0,NumStep)
+fig = plt.figure()
+x = np.arange(0,NumStep)
 
-# # syntax for 3-D projection
+# syntax for 3-D projection
 
-# #y = np.linspace(0,20,20)
+#y = np.linspace(0,20,20)
 
-# if spacing_or_velocity == 0:
-#     ax = plt.axes(projection ='3d')
-#     for i in range(N):
-#         z = np.ones(NumStep-1)*i
+if spacing_or_velocity == 0:
+    ax = plt.axes(projection ='3d')
+    for i in range(N):
+        z = np.ones(NumStep-1)*i
 
-#         # if i==N-1 and mix==1:
-#         if ID[i] == 1:
-#             ax.plot3D(z, x[:-1], S[:-1,i-1,0] - S[:-1,i,0], 'red', linewidth=0.5)
-#             continue
+        # if i==N-1 and mix==1:
+        if ID[i] == 1:
+            ax.plot3D(z, x[:-1], S[:-1,i-1,0] - S[:-1,i,0], 'red', linewidth=0.5)
+            continue
 
-#         if i==0:
-#             ax.plot3D(z, x[:-1], S[:-1,i-1,0] - S[:-1,i,0] + Circumference, 'blue', linewidth=0.5)
-#             continue
+        if i==0:
+            ax.plot3D(z, x[:-1], S[:-1,i-1,0] - S[:-1,i,0] + Circumference, 'blue', linewidth=0.5)
+            continue
 
-#         ax.plot3D(z, x[:-1], S[:-1,i-1,0] - S[:-1,i,0], 'blue', linewidth=0.5)
-
-
-#     ax.set_yticks(np.linspace(0,NumStep,5))
-#     ax.set_yticklabels(np.linspace(0,TotalTime,5))
-#     ax.set_xlabel("Vehicle ID")
-#     ax.set_ylabel("Time")
-#     ax.set_zlabel("Spacing from vehicle ahead")
-#     title = "N=" + str(N) + ", mix=" + str(mix)
-#     ax.set_title(title)
-#     plt.show()
-
-# if spacing_or_velocity == 1:
-#     ax = plt.axes(projection ='3d')
-#     for i in range(N):
-#         z = np.ones(NumStep-1)*i
-
-#         # if i==N-1 and mix==1:
-#         if ID[i] == 1:
-#             ax.plot3D(z, x[:-1], S[:-1,i,1], 'red', linewidth=0.5)
-#             continue
-
-#         ax.plot3D(z, x[:-1], S[:-1,i,1], 'blue', linewidth=0.5)
+        ax.plot3D(z, x[:-1], S[:-1,i-1,0] - S[:-1,i,0], 'blue', linewidth=0.5)
 
 
-#     ax.set_yticks(np.linspace(0,NumStep,5))
-#     ax.set_yticklabels(np.linspace(0,TotalTime,5))
-#     ax.set_xlabel("Vehicle ID")
-#     ax.set_ylabel("Time")
-#     ax.set_zlabel("Vehicle Velocity")
-#     title = "N=" + str(N) + ", mix=" + str(mix) 
-#     ax.set_title(title)
-#     plt.show()
+    ax.set_yticks(np.linspace(0,NumStep,5))
+    ax.set_yticklabels(np.linspace(0,TotalTime,5))
+    ax.set_xlabel("Vehicle ID")
+    ax.set_ylabel("Time")
+    ax.set_zlabel("Spacing from vehicle ahead")
+    title = "N=" + str(N) + ", mix=" + str(mix)
+    ax.set_title(title)
+    plt.show()
+
+if spacing_or_velocity == 1:
+    ax = plt.axes(projection ='3d')
+    for i in range(N):
+        z = np.ones(NumStep-1)*i
+
+        # if i==N-1 and mix==1:
+        if ID[i] == 1:
+            ax.plot3D(z, x[:-1], S[:-1,i,1], 'red', linewidth=0.5)
+            continue
+
+        ax.plot3D(z, x[:-1], S[:-1,i,1], 'blue', linewidth=0.5)
+
+
+    ax.set_yticks(np.linspace(0,NumStep,5))
+    ax.set_yticklabels(np.linspace(0,TotalTime,5))
+    ax.set_xlabel("Vehicle ID")
+    ax.set_ylabel("Time")
+    ax.set_zlabel("Vehicle Velocity")
+    title = "N=" + str(N) + ", mix=" + str(mix) 
+    ax.set_title(title)
+    plt.show()
 
 
 # # Animation
