@@ -88,7 +88,7 @@ vehicleSize = 12; % MarkerSize
 Vehicle parameters setting:
 
 - v_max indicate the maximum velocity the vehicle can reach. acel_max and decel_max indicate the maximum acceleration and amximun deacceleration rate respectively. The Driver model is set by using OVM model.
-- acel_max and dcel_max indicate the maximum acceleration and mininmum acceleration.
+- acel_max and dcel_max indicate the maximum acceleration rate and mininmum acceleration rate.
 ```matlab
 v_max = 30;
 acel_max = 5;
@@ -112,13 +112,17 @@ s_go = 35;
 
 Simulation setting:
 
+- TotalTime definite the end time (100s) of the simulations.
+- NumStep is calculated by TotalTime/Tstep
 ```matlab
 TotalTime = 100;
 Tstep = 0.01;
 NumStep = TotalTime/Tstep;
 ```
 
-The actuation setting set the time when the controller will be engaged.
+- The Circumference indicate the ring circumference for the simulation. It is calculated bse on the value of the vehicle number N and equilibrium spacing s_star.
+- The actuation setting set the time when the controller will be engaged.
+
 ```matlab
 Circumference = s_star*N;
 if mix
@@ -128,7 +132,12 @@ else
 end
 ```
 
-Equilibrium state setting.
+
+Equilibrium state setting:
+
+- v_star indicate the theoretically equilibrium velocity.
+- s_ctr indicate the desire controller spacing which is set equal to the equilibrium spacing. 
+- v_ctr indicate the monotonically increasing function that the controller apply according to the spacing informations.(st < s < sgo).
 ```matlab
 s_star = Circumference/N;
 v_star = v_max/2*(1-cos(pi*(s_star-s_st)/(s_go-s_st))); %THEORETICALLY equilibrium velocity
@@ -136,12 +145,18 @@ s_ctr = s_star*1.0;
 v_ctr = v_max/2*(1-cos(pi*(s_ctr-s_st)/(s_go-s_st)));
 ```
 
-Safe distance setting. The minimum safe distance value is set to zero since the vehicle length is ignored.
+Safe distance setting:
+
+The minimum safe distance value is set to zero since the vehicle length is ignored.
 ```matlab
 sd = 0;
 ```
 
-Initial State for each vehicle
+Initial State for each vehicle:
+
+_ dev_s indicate the deviation spacing for each vehicle.
+- dev_v means the deviation velocity.
+- v_ini indicate the initial velocity of each vehicle.
 ```matlab
 S = zeros(NumStep,N,3);
 dev_s = 0;
