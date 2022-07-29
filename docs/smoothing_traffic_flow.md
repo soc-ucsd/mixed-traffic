@@ -312,7 +312,7 @@ set(clabel,'String','Velocity $[\mathrm{m/s}]$','Interpreter','latex','fontsize'
 ```
 
 
-Here is the code to plot the brakeID vehicle and AV:
+Plot for the brakeID vehicle and AV:
 
 ```matlab
 hold on;
