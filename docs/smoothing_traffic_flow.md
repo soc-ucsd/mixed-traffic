@@ -101,7 +101,7 @@ OVM Model setting:
 desired velocity V (si(t)), and beta > 0 reflects the driver’s
 sensitivity to the difference between the velocities of the front vehicle and the preceding vehicle
 
-- s_st, s_go indicate the spacing between vehicles that the velocity state change. When the spacing < than space st. The vehicle speed will come down to zero. When the spacing are lareger
+- s_st, s_go indicate the spacing between vehicles that the velocity state change. When the spacing is smaller than space st. The vehicle speed will come down to zero. When the spacing is lareger
 than s_go(spacing for go). The vehicle will achieve the maximum velocity.
 ```matlab
 alpha = 0.6;
