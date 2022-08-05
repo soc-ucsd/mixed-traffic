@@ -632,7 +632,7 @@ W = cp.Variable((m+n,m+n), symmetric=True)
 This code sets up our optimization problem, generating a
 
 
-## Experiment results
+## Experiment Results
 Two demonstrations are shown below:    
 
 All the vehicles are HDVs: traffic wave emerges
