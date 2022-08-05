@@ -183,7 +183,7 @@ else
 end
 ```
 
-Simulation part:
+Simulation Module:
 
 ```matlab
 sd_actuate = 0;
