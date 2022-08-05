@@ -523,7 +523,11 @@ K = Zd*Xd^(-1);
 end
 
 ```
+
 ##### [ring_traffic_model.m](https://github.com/soc-ucsd/mixed-traffic/blob/main/smoothing_traffic_flow_via_AVs/_fcn/ring_traffic_model.m)
+
+This function generate the dynamic model for the OVM model.
+
 ```matlab
 function [A,B,Q,R] = ring_traffic_model(N,s_star,gamma_s,gamma_v,gamma_u,AV_number)
 % Generate a dynamic model for 
