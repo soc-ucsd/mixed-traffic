@@ -475,7 +475,9 @@ end
 #### Functions
 ##### [lqr_sdp.m](https://github.com/soc-ucsd/mixed-traffic/blob/main/smoothing_traffic_flow_via_AVs/_fcn/lqr_sdp.m)
 
-This function will generate the K value (the feedback gain) for the control input u(t) setup (u(t) = −Kx). 
+This function will generate the K value (the feedback gain) for the control input u(t) setup. 
+
+Optimal control input: u(t) = −Kx
 
 ```matlab
 function [K] = lqr_sdp(N,s_star,gamma_s,gamma_v,gamma_u,AV_number)
