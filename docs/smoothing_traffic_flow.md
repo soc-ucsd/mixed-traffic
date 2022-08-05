@@ -279,7 +279,10 @@ for k = 1:NumStep
 end
 ```
 
-Plot for the color map:
+Plot for Simulation result:
+- Figure with color map indicating the relationship among the vehicle position and velocity and simulation time.
+- Figure with line plot indicating the trend of velocity for OVM model with simulation time.
+
 ```matlab
 
 figuresize = [250 150 400 300];
