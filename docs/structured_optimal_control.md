@@ -82,7 +82,8 @@ This function take the a series of parameters setting as input to generate the s
 
 - Q is the Kalman controllability matrix
 - A and B is the matrix paramters for the linearized state-space model for the mixed traffic system x˙(t) = Ax(t) + Bu(t)
-- R is calculated by gamma_u*eye(AV_number,AV_number)
+- R is calculated by gamma_u*eye(AV_number,AV_number) Both Q and R consist of the system-level performance output z. Indicating that we allow the perturbation to arise from anywhere in the traffic flow, and the performance output z(t) takes into account all the vehicles’ deviations in the traffic flow. This
+setup indicates a system-level consideration.
 
 
 ```matlab
