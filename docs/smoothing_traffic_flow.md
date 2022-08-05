@@ -356,6 +356,7 @@ p3 = plot(Tstep:Tstep:TotalTime,V_avg,'-','linewidth',Lwidth,'Color','k');
 ```
 
 Animation module:
+
 - Animation Setup
 ```matlab
 %% Animation
@@ -432,8 +433,6 @@ fig.Children(1).Position = [0.52 0.26 0.3 0.5];
 ```
 
 - Update for the Animation (show the update the vehicle location and state in the animation according to previous simulation data.
-
-
 ```matlab
 for i=10/Tstep:10:(TotalTime-20)/Tstep
     
