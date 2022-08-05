@@ -29,7 +29,9 @@ comm_limited = 1;
 CR = 5; 
 ```
 
-Experiment parameter setting. N indicate the total number of vehicle in the experiment.
+Experiment parameter setting: 
+
+N indicate the total number of vehicle in the experiment. V_star indicate the equilibrium velocity.
 
 ```matlab
 N = 20;
@@ -46,7 +48,7 @@ s_star = acos(1-v_star./v_max*2)/pi.*(s_go-s_st)+s_st;
 AV_number = 1;
 ```
 
-Cost Function Weight Setting.
+Cost Function Weight Setting:
 
 - gamma_s means the preference setting of vehicle spacing.
 - gamma_v means the preference setting of vehicle velocity.
@@ -58,7 +60,7 @@ gamma_v = 0.15;
 gamma_u = 1;
 ```
 
-Controller design.
+Controller design:
 
 ```matlab
 [A,B1,B2,Q,R] = system_model(N,AV_number,alpha,beta,v_max,s_st,s_go,s_star,gamma_s,gamma_v,gamma_u);
