@@ -282,7 +282,6 @@ end
 Plots for Simulation result:
 
 - Figure with color map indicating the relationship among the vehicle position and velocity and simulation time.
-
 ```matlab
 
 figuresize = [250 150 400 300];
@@ -318,7 +317,6 @@ set(clabel,'String','Velocity $[\mathrm{m/s}]$','Interpreter','latex','fontsize'
 ```
 
 - Plot for the brakeID vehicle and AV:
-
 ```matlab
 hold on;
 for i=1:N
