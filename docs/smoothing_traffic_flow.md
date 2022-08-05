@@ -281,7 +281,6 @@ end
 
 Plot for Simulation result:
 - Figure with color map indicating the relationship among the vehicle position and velocity and simulation time.
-- Figure with line plot indicating the trend of velocity for OVM model with simulation time.
 
 ```matlab
 
@@ -317,7 +316,7 @@ clabel = get(hcb,'label');
 set(clabel,'String','Velocity $[\mathrm{m/s}]$','Interpreter','latex','fontsize',Wsize,'Color','k');
 ```
 
-Plot for the brakeID vehicle and AV:
+- Plot for the brakeID vehicle and AV:
 
 ```matlab
 hold on;
