@@ -78,8 +78,12 @@ end
 
 ##### [system_model.m](https://github.com/soc-ucsd/mixed-traffic/blob/main/structured_optimal_control/_fcn/system_model.m)
 
-This function will generate the K value (the feedback gain) for the control input u(t) setup.
-Optimal control input: u(t) = −Kx
+This function take the a series of parameters setting as input to generate the system model paramters (A,B1,B2,Q,R).
+
+- Q is the Kalman controllability matrix
+- A and B is the matrix paramters for the linearized state-space model for the mixed traffic system x˙(t) = Ax(t) + Bu(t)
+- R is calculated by gamma_u*eye(AV_number,AV_number)
+
 
 ```matlab
 function [A,B1,B2,Q,R] = system_model(N,AV_number,alpha,beta,v_max,s_st,s_go,s_star,gamma_s,gamma_v,gamma_u)
@@ -177,6 +181,10 @@ end
 ```
 
 ##### [lqrsdp.m](https://github.com/soc-ucsd/mixed-traffic/blob/main/structured_optimal_control/_fcn/lqrsdp.m)
+
+This function will generate the optimal controller strategy's K value (the feedback gain) for the control input u(t) setup.
+
+Optimal control input: u(t) = −Kx
 
 ```matlab
 function [K_Opt,Info] = optsi(A,B1,B2,K_Pattern,Q,R)
