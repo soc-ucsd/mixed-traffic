@@ -12,9 +12,9 @@ from functions.getPercentile import getAVIDPercentile
 ''' Key Parameters'''
 
 N = 20
-AV_number = 1 # 0 or 1 or 2 or 4
+AV_number = 20 # 0 or 1 or 2 or 4
 
-platoon_bool = 1 # 0 or 1
+platoon_bool = 0 # 0 or 1
 
 # Position of the perturbation
 brakeID = 4
@@ -72,8 +72,8 @@ beta   = 0.9
 
 acel_max = 2
 dcel_max = -5
-s_ctr  = s_star
-v_ctr  = (v_max/2) * (1-math.cos(math.pi * (s_ctr - s_st)/(s_go - s_st)))
+s_ctr = s_star
+v_ctr = (v_max/2) * (1-math.cos(math.pi * (s_ctr - s_st)/(s_go - s_st)))
 alpha_k = 0.6
 
 '''%Driver Model: OVM'''
@@ -82,7 +82,7 @@ alpha_k = 0.6
 sd = 8 # minimum value is zero since the vehicle length is ignored
 
 #Simulation
-TotalTime = 200
+TotalTime = 100
 Tstep = 0.01
 NumStep = int(TotalTime/Tstep)
 #Scenario
@@ -113,7 +113,7 @@ D_diff = np.zeros([NumStep,N])
 temp = np.zeros([N])
 #Avg Speed
 V_avg = np.zeros((NumStep,1))
-
+v_cmd = np.zeros((NumStep,1)) #for controllers 2,3
 X = np.zeros((2*N,NumStep))
 
 
@@ -165,18 +165,13 @@ for k in range(0,NumStep-2):
     temp[1:] = S[k,:-1,1]
     temp[0] = S[k,-1,1]
     acel_sd = (S[k,:,1]**2-temp**2)/2/(D_diff[k,:]-sd)
-    #if (k%100==0):
-        #print(D_diff[k,:])
-        #print(temp)
-        #print(acel_sd)
-        #print(" ")
     acel[acel_sd>abs(dcel_max)] = dcel_max
     
     S[k,:,2] = acel
-
+    
     if mix:
         AV_position = np.nonzero(ID == 1)
-        if (k> ActuationTime/Tstep):
+        if (k> ActuationTime/Tstep) :
             if (controllerType == 1) :
                 X[np.arange(0,2*N,2),k] = D_diff[k,:]-s_star
                 X[np.arange(1,2*N,2),k] = S[k,:,1]-v_star
@@ -198,19 +193,19 @@ for k in range(0,NumStep-2):
                 dx3 = dx30+dv_temp**2/2/d3
                 
                 dx = D_diff[k,N-1]
-                v_temp = min(S[k,-2,1],12)
-                
+                v_temp = min(S[k,-2,1],v_star)
+
                 if dx<=dx1:
-                    v_cmd = 0
+                    v_cmd[k] = 0
                 elif dx<=dx2:                                                        #??????? d2 is greater than d3
-                    v_cmd = v_temp*(dx-dx1)/(dx2-dx1)
+                    v_cmd[k] = v_temp*(dx-dx1)/(dx2-dx1)
                 elif dx<=dx3:
-                    v_cmd = v_temp+(v_ctr-v_temp)*(dx-dx2)/(dx3-dx2)
+                    v_cmd[k] = v_temp+(v_ctr-v_temp)*(dx-dx2)/(dx3-dx2)
                 else:
-                    v_cmd = v_ctr
+                    v_cmd[k] = v_ctr
                 
-                u = alpha_k * (v_cmd-S[k,-1,1])
-        
+                u = alpha_k*(v_cmd[k]-S[k,-1,1])
+               
             elif controllerType==3:
                 gl = 7
                 gu = 30
@@ -228,8 +223,6 @@ for k in range(0,NumStep-2):
                 v_cmd[k+1] = beta_temp*(alpha_temp*v_target+(1-alpha_temp)*S[k,-2,1])+(1-beta_temp)*v_cmd[k]
                 u = alpha_k*(v_cmd[k+1]-S[k,-1,1])
 
-            print(u)
-
             #error might
             t_x = np.nonzero(u>acel_max)
             if np.all(t_x==0):
@@ -243,11 +236,9 @@ for k in range(0,NumStep-2):
                 if (flag.any()):
                     u[i_AV] = dcel_max
                 S[k,id_AV,2] = u[i_AV]
-                
-
 
     if (k*Tstep>20) and (k*Tstep<22):
-        S[k,brakeID,2]=-5
+        S[k,brakeID,2] = -5
 
     S[k+1,:,1] = S[k,:,1] + Tstep*S[k,:,2]
     S[k+1,:,0] = S[k,:,0] + Tstep*S[k,:,1]
@@ -352,68 +343,67 @@ if spacing_or_velocity == 1:
     ax.set_title(title)
     plt.show()
 
+# # Animation
+# if spacing_or_velocity != 2:
+#     velUpperBound = 15 # color
+#     velLowerBound = 8 # color
+#     vehicleSize = 10.5 # MarkerSize
 
-# Animation
-if spacing_or_velocity != 2:
-    velUpperBound = 15 # color
-    velLowerBound = 8 # color
-    vehicleSize = 10.5 # MarkerSize
+#     fig = plt.figure(figsize=(9,9), dpi=80) # ADD A PARAMETER TO NUMERICALLY IDENTIFY FIGURE
+#     fig.set_facecolor('w') 
+#     #axs1 = plt.subplot(121)
+#     #axs1.set_aspect('equal')
+#     plt.axis('off')
 
-    fig = plt.figure(figsize=(9,9), dpi=80) # ADD A PARAMETER TO NUMERICALLY IDENTIFY FIGURE
-    fig.set_facecolor('w') 
-    #axs1 = plt.subplot(121)
-    #axs1.set_aspect('equal')
-    plt.axis('off')
+#     R = Circumference/2/math.pi * 2
+#     position = [None] * N
 
-    R = Circumference/2/math.pi * 2
-    position = [None] * N
-
-    def init():
-        #Vehicles
-        for id in range(N) :
-            if not mix :
-                position[id] = plt.plot(R * np.cos(S[0, id, 0] / Circumference * 2 * math.pi), R * np.sin(S[0, id, 0] / Circumference * 2 * math.pi), marker = 'o', markersize = vehicleSize, markerfacecolor = '#008000', markeredgecolor = 'k')[0]
+#     def init():
+#         #Vehicles
+#         for id in range(N) :
+#             if not mix :
+#                 position[id] = plt.plot(R * np.cos(S[0, id, 0] / Circumference * 2 * math.pi), R * np.sin(S[0, id, 0] / Circumference * 2 * math.pi), marker = 'o', markersize = vehicleSize, markerfacecolor = '#008000', markeredgecolor = 'k')[0]
             
-            else :
-                if ID[id] == 0 :
-                    position[id] = plt.plot(R * 0.5 * np.cos(S[0, id, 0] / Circumference * 2 * math.pi), R * 0.5 * np.sin(S[0, id, 0] / Circumference * 2 * math.pi), marker = 'o', markersize = vehicleSize, markerfacecolor = '#008000', markeredgecolor = 'k')[0]
-                else :
-                    position[id] = plt.plot(R * 0.5 * np.cos(S[0, id, 0] / Circumference * 2 * math.pi), R * 0.5 * np.sin(S[0, id, 0] / Circumference * 2 * math.pi), marker = 'o', markersize = vehicleSize, markerfacecolor = 'b', markeredgecolor = 'k')[0]
-        #Road
-        temp = np.linspace(0,2 * math.pi,100)
-        plt.plot(0.87 * R * np.cos(temp), 0.87 * R * np.sin(temp),markerfacecolor = 'k', linewidth = 0.4)
-        plt.plot(1.13 * R * np.cos(temp), 1.13 * R * np.sin(temp),markerfacecolor = 'k', linewidth = 0.4)
-        return position
+#             else :
+#                 if ID[id] == 0 :
+#                     position[id] = plt.plot(R * 0.5 * np.cos(S[0, id, 0] / Circumference * 2 * math.pi), R * 0.5 * np.sin(S[0, id, 0] / Circumference * 2 * math.pi), marker = 'o', markersize = vehicleSize, markerfacecolor = '#008000', markeredgecolor = 'k')[0]
+#                 else :
+#                     position[id] = plt.plot(R * 0.5 * np.cos(S[0, id, 0] / Circumference * 2 * math.pi), R * 0.5 * np.sin(S[0, id, 0] / Circumference * 2 * math.pi), marker = 'o', markersize = vehicleSize, markerfacecolor = 'b', markeredgecolor = 'k')[0]
+#         #Road
+#         temp = np.linspace(0,2 * math.pi,100)
+#         plt.plot(0.87 * R * np.cos(temp), 0.87 * R * np.sin(temp),markerfacecolor = 'k', linewidth = 0.4)
+#         plt.plot(1.13 * R * np.cos(temp), 1.13 * R * np.sin(temp),markerfacecolor = 'k', linewidth = 0.4)
+#         return position
 
-    def update(frame):   
-        #for i in range (int(10/Tstep) - 1, int((TotalTime - 20) / Tstep), 10) :
-        i = int(10/Tstep) - 1 + (10 * frame)
-        for id in range(0,N) : 
-            temp = np.linspace(0,2 * math.pi,100)
-            position[id].set_xdata(R * np.cos(S[i,id,0] / Circumference * 2 * math.pi))
-            position[id].set_ydata(R * np.sin(S[i,id,0] / Circumference * 2 * math.pi))
+#     def update(frame):   
+#         #for i in range (int(10/Tstep) - 1, int((TotalTime - 20) / Tstep), 10) :
+#         i = int(10/Tstep) - 1 + (10 * frame)
+#         for id in range(0,N) : 
+#             temp = np.linspace(0,2 * math.pi,100)
+#             position[id].set_xdata(R * np.cos(S[i,id,0] / Circumference * 2 * math.pi))
+#             position[id].set_ydata(R * np.sin(S[i,id,0] / Circumference * 2 * math.pi))
 
-            velocityMap = [
-                        (1,0,0), (1, 0.09375, 0), (1, 0.1875,0), (1, 0.28125,0), (1, 0.375,0),
-                        (1, 0.46875, 0), (1, 0.5625, 0), (1, 0.65625, 0), (1, 0.75, 0), (1, 0.84375, 0), (1, 0.9375, 0),
-                        (0.96875, 1, 0), (0.875, 1, 0), (0.78125, 1, 0), (0.6875, 1, 0), (0.59375, 1, 0), (0.5, 1, 0),
-                        (0.40625, 1, 0), (0.3125, 1, 0), (0.21875, 1, 0), (0.125, 1, 0), (0.03125, 1, 0)
-                        ]
-
-
-            if S[i,id,1] < velLowerBound :
-                temp = velLowerBound
-            elif S[i,id,1] > velUpperBound :
-                temp = velUpperBound
-            else :
-                temp = S[i,id,1]
+#             velocityMap = [
+#                         (1,0,0), (1, 0.09375, 0), (1, 0.1875,0), (1, 0.28125,0), (1, 0.375,0),
+#                         (1, 0.46875, 0), (1, 0.5625, 0), (1, 0.65625, 0), (1, 0.75, 0), (1, 0.84375, 0), (1, 0.9375, 0),
+#                         (0.96875, 1, 0), (0.875, 1, 0), (0.78125, 1, 0), (0.6875, 1, 0), (0.59375, 1, 0), (0.5, 1, 0),
+#                         (0.40625, 1, 0), (0.3125, 1, 0), (0.21875, 1, 0), (0.125, 1, 0), (0.03125, 1, 0)
+#                         ]
 
 
-            if ID[id] == 0:
-                colorID = min(math.floor((temp - velLowerBound) / (velUpperBound - velLowerBound) * 22) + 1, 22) - 1
-                position[id].set_markerfacecolor(velocityMap[colorID])
-        fig.canvas.draw()
-        return position
+#             if S[i,id,1] < velLowerBound :
+#                 temp = velLowerBound
+#             elif S[i,id,1] > velUpperBound :
+#                 temp = velUpperBound
+#             else :
+#                 temp = S[i,id,1]
 
-    ani = FuncAnimation(fig, update, frames = 10000, interval = 50, init_func=init, repeat=True, blit=True)
-    plt.show()
+
+#             if ID[id] == 0:
+#                 colorID = min(math.floor((temp - velLowerBound) / (velUpperBound - velLowerBound) * 22) + 1, 22) - 1
+#                 position[id].set_markerfacecolor(velocityMap[colorID])
+#         fig.canvas.draw()
+#         return position
+
+#     ani = FuncAnimation(fig, update, frames = 10000, interval = 50, init_func=init, repeat=True, blit=True)
+#     plt.show()
