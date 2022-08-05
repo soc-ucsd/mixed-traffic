@@ -280,6 +280,7 @@ end
 ```
 
 Plots for Simulation result:
+
 - Figure with color map indicating the relationship among the vehicle position and velocity and simulation time.
 
 ```matlab
