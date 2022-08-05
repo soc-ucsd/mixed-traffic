@@ -277,6 +277,10 @@ end
 for k = 1:NumStep
     V_avg(k) = mean(S(k,:,2));
 end
+```
+
+Plot for the color map:
+```matlab
 
 figuresize = [250 150 400 300];
 Lwidth = 1.2;
@@ -308,9 +312,7 @@ xlabel('$t\;[\mathrm{s}]$','fontsize',Wsize,'Interpreter','latex','Color','k');
 ylabel('Position $[\mathrm{m}]$','fontsize',Wsize,'Interpreter','latex','Color','k');
 clabel = get(hcb,'label');
 set(clabel,'String','Velocity $[\mathrm{m/s}]$','Interpreter','latex','fontsize',Wsize,'Color','k');
-
 ```
-
 
 Plot for the brakeID vehicle and AV:
 
