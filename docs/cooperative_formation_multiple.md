@@ -1,4 +1,4 @@
-# Cooperative Formation Multiple
+# Cooperative Formation Multiple of CAVs
 
 Although large-scale numerical simulations and small-scale experiments have shown promising results, 
 a comprehensive theoretical understanding to smooth traffic flow via AVs is lacking. Here, from a 
