@@ -8,7 +8,7 @@
 * [Structured Optimal Control](structured_optimal_control.md)
     - [Getting Started](structured_optimal_control.md#Getting Started)
     - [Experiment Results](structured_optimal_control.md#Experiment Results)
-* [Cooperative Formation Multiple](cooperative_formation_multiple.md)
+* [Cooperative Formation of Multiple CAVs](cooperative_formation_multiple.md)
     - [Getting Started](cooperative_formation_multiple.md#Getting Started)
     - [Experiment Results](cooperative_formation_multiple.md#Experiment Results)
 
