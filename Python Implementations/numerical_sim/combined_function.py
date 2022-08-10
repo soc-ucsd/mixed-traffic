@@ -1,6 +1,4 @@
-from ast import Break
 import math
-from telnetlib import TSPEED
 import numpy as np
 import cvxpy as cp
 import matplotlib.pyplot as plt
@@ -16,7 +14,7 @@ from functions.getPercentile import getAVIDPercentile
 N = 70
 AV_number = 70 # 0 or 1 or 2 or 4
 
-platoon_bool = 1 # 0 or 1
+platoon_bool = 0 # 0 or 1
 
 # Position of the perturbation
 brakeID = 4
@@ -35,11 +33,11 @@ ID = np.zeros([N]) #0. Manually Driven  1. Controller
 
 if mix:
     ActuationTime = 0
-    ID = getAVIDPercentile(N, ID, AV_number)
+    ID = getAVIDPercentile(N, platoon_bool, ID, AV_number)
 #Controller Parameter
-controllerType = 1
+controllerType = 2
 
-if mix == 1 and controllerType == 1:
+if mix == 1:
     gammaType = 1
     if gammaType == 1:
         gamma_s = 0.03
@@ -68,14 +66,13 @@ beta   = 0.9
 #     beta   = 1.5
 
 
-
 # In[3] 
 '''Other Parameters'''
 
 acel_max = 2
 dcel_max = -5
-s_ctr  = s_star
-v_ctr  = (v_max/2) * (1-math.cos(math.pi * (s_ctr - s_st)/(s_go - s_st)))
+s_ctr = s_star
+v_ctr = (v_max/2) * (1-math.cos(math.pi * (s_ctr - s_st)/(s_go - s_st)))
 alpha_k = 0.6
 
 '''%Driver Model: OVM'''
@@ -84,7 +81,7 @@ alpha_k = 0.6
 sd = 8 # minimum value is zero since the vehicle length is ignored
 
 #Simulation
-TotalTime = 200
+TotalTime = 100
 Tstep = 0.01
 NumStep = int(TotalTime/Tstep)
 #Scenario
@@ -115,7 +112,7 @@ D_diff = np.zeros([NumStep,N])
 temp = np.zeros([N])
 #Avg Speed
 V_avg = np.zeros((NumStep,1))
-
+v_cmd = np.zeros((NumStep,1)) #for controllers 2,3
 X = np.zeros((2*N,NumStep))
 
 
@@ -127,13 +124,14 @@ alpha2 = alpha+beta
 alpha3 = beta
 
 # In[apply f] 
-if mix:
+if mix and controllerType == 1:
     Obj,stable_bool,stability_condition_bool,K = ReturnObjectiveValue(ID,N,alpha1,alpha2,alpha3,gammaType)
 
 
 # In[5] 
 
 #Simulation
+u = np.zeros(AV_number)
 for k in range(0,NumStep-2):
     
     #Car in front velocity
@@ -167,53 +165,49 @@ for k in range(0,NumStep-2):
     temp[1:] = S[k,:-1,1]
     temp[0] = S[k,-1,1]
     acel_sd = (S[k,:,1]**2-temp**2)/2/(D_diff[k,:]-sd)
-    #if (k%100==0):
-        #print(D_diff[k,:])
-        #print(temp)
-        #print(acel_sd)
-        #print(" ")
     acel[acel_sd>abs(dcel_max)] = dcel_max
     
     S[k,:,2] = acel
-
+    
     if mix:
         AV_position = np.nonzero(ID == 1)
-        if (k> ActuationTime/Tstep):
+        if (k> ActuationTime/Tstep) :
             if (controllerType == 1) :
                 X[np.arange(0,2*N,2),k] = D_diff[k,:]-s_star
                 X[np.arange(1,2*N,2),k] = S[k,:,1]-v_star
-                u = -K@X[:,k]    
+                u = -K@X[:,k]  
 
             elif controllerType==2 :
                 dx10 = 9.5
                 dx20 = 10.75
                 dx30 = 11
-                
-                dv_temp = min(S[k,-2,1]-S[k,-1,1],0)
-                
+
                 d1 = 1.5
                 d2 = 1.0
                 d3 = 0.5
                 
-                dx1 = dx10+dv_temp**2/2/d1
-                dx2 = dx20+dv_temp**2/2/d2
-                dx3 = dx30+dv_temp**2/2/d3
-                
-                dx = D_diff[k,N-1]
-                v_temp = min(S[k,-2,1],12)
-                
-                
-                if dx<=dx1:
-                    v_cmd = 0
-                elif dx<=dx2:                                                        #??????? d2 is greater than d3
-                    v_cmd = v_temp*(dx-dx1)/(dx2-dx1)
-                elif dx<=dx3:
-                    v_cmd = v_temp+(v_ctr-v_temp)*(dx-dx2)/(dx3-dx2)
-                else:
-                    v_cmd = v_ctr
-                
-                u = alpha_k*(v_cmd-S[k,-1,1])
-        
+                for i_AV in range(0,AV_number):
+                    id_AV = AV_position[0][i_AV]
+                    dv_temp = min(S[k,id_AV-1,1]-S[k,id_AV,1],0)
+                                
+                    dx1 = dx10+dv_temp**2/2/d1
+                    dx2 = dx20+dv_temp**2/2/d2
+                    dx3 = dx30+dv_temp**2/2/d3
+                    
+                    dx = D_diff[k,id_AV]
+                    v_temp = min(S[k,id_AV-1,1],12)
+
+                    if dx<=dx1:
+                        v_cmd[k] = 0
+                    elif dx<=dx2:                                                        #??????? d2 is greater than d3
+                        v_cmd[k] = v_temp*(dx-dx1)/(dx2-dx1)
+                    elif dx<=dx3:
+                        v_cmd[k] = v_temp+(v_ctr-v_temp)*(dx-dx2)/(dx3-dx2)
+                    else:
+                        v_cmd[k] = v_ctr
+                    
+                    u[i_AV] = alpha_k*(v_cmd[k]-S[k,id_AV,1])
+               
             elif controllerType==3:
                 gl = 7
                 gu = 30
@@ -230,7 +224,7 @@ for k in range(0,NumStep-2):
                 beta_temp = 1-0.5*alpha_temp
                 v_cmd[k+1] = beta_temp*(alpha_temp*v_target+(1-alpha_temp)*S[k,-2,1])+(1-beta_temp)*v_cmd[k]
                 u = alpha_k*(v_cmd[k+1]-S[k,-1,1])
-            
+
             #error might
             t_x = np.nonzero(u>acel_max)
             if np.all(t_x==0):
@@ -244,11 +238,9 @@ for k in range(0,NumStep-2):
                 if (flag.any()):
                     u[i_AV] = dcel_max
                 S[k,id_AV,2] = u[i_AV]
-                
-
 
     if (k*Tstep>20) and (k*Tstep<22):
-        S[k,brakeID,2]=-5
+        S[k,brakeID,2] = -5
 
     S[k+1,:,1] = S[k,:,1] + Tstep*S[k,:,2]
     S[k+1,:,0] = S[k,:,0] + Tstep*S[k,:,1]
@@ -264,6 +256,10 @@ Wsize = 20
 
 # In[7] 
 # Velocity
+
+#Control Energy
+controlEnergy = np.sum(S[:,N-1,2]**2) * Tstep
+print("Control energy is",controlEnergy, "J")
 
 #Settling Time
 test = NumStep
@@ -290,7 +286,6 @@ print("Maximum Spacing in front of AV is ", round(max_space,2) )
 
 #Average settled velocity
 print("Average settled velocity is ", round(np.mean(S[(int((0.9*TotalTime)/Tstep)):,:,1]),2), " m/s")
-
 
 spacing_or_velocity = 1 # 0 or 1 
 #Display data
@@ -349,7 +344,6 @@ if spacing_or_velocity == 1:
     title = "N=" + str(N) + ", mix=" + str(mix) 
     ax.set_title(title)
     plt.show()
-
 
 # # Animation
 # if spacing_or_velocity != 2:
@@ -413,5 +407,5 @@ if spacing_or_velocity == 1:
 #         fig.canvas.draw()
 #         return position
 
-#     ani = FuncAnimation(fig, update, frames = 10000, interval = 1, init_func=init, repeat=True, blit=True)
+#     ani = FuncAnimation(fig, update, frames = 10000, interval = 50, init_func=init, repeat=True, blit=True)
 #     plt.show()
