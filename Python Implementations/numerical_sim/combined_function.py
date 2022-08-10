@@ -11,10 +11,10 @@ from functions.getPercentile import getAVIDPercentile
 # In[1] 
 ''' Key Parameters'''
 
-N = 70
-AV_number = 70 # 0 or 1 or 2 or 4
+N = 20
+AV_number = 10 # 0 or 1 or 2 or 4
 
-platoon_bool = 0 # 0 or 1
+platoon_bool = 1 # 0 or 1
 
 # Position of the perturbation
 brakeID = 4
@@ -35,7 +35,7 @@ if mix:
     ActuationTime = 0
     ID = getAVIDPercentile(N, platoon_bool, ID, AV_number)
 #Controller Parameter
-controllerType = 2
+controllerType = 3
 
 if mix == 1:
     gammaType = 1
@@ -213,17 +213,19 @@ for k in range(0,NumStep-2):
                 gu = 30
                 v_catch = 1
                 gamma_temp = 2
-                
-                if k-38/Tstep<=ActuationTime/Tstep:
-                    v_hisAvg = np.mean(S[int(ActuationTime/Tstep)-1:k,-1,1])
-                else:
-                    v_hisAvg = np.mean(S[int((k-38/Tstep)-ActuationTime/Tstep)-1:k,-1,1])
-                
-                v_target = v_hisAvg + v_catch*min(max((D_diff[k,-1]-gl)/(gu-gl),0),1)
-                alpha_temp = min(max((D_diff[k,-1]-max(2*V_diff[k,-1],4))/gamma_temp, 0),1)
-                beta_temp = 1-0.5*alpha_temp
-                v_cmd[k+1] = beta_temp*(alpha_temp*v_target+(1-alpha_temp)*S[k,-2,1])+(1-beta_temp)*v_cmd[k]
-                u = alpha_k*(v_cmd[k+1]-S[k,-1,1])
+                int_num = int(k-26/Tstep)
+                for i_AV in range(0,AV_number):
+                    id_AV = AV_position[0][i_AV]
+                    if int_num <= 0:
+                        v_hisAvg = np.mean(S[0:k,id_AV,1])
+                    else:
+                        v_hisAvg = np.mean(S[int_num:k,id_AV,1])
+                    
+                    v_target = v_hisAvg + v_catch*min(max((D_diff[k,id_AV] - gl)/(gu-gl),0),1)
+                    alpha_temp = min(max((D_diff[k,id_AV]-max(2*V_diff[k,id_AV],4))/gamma_temp, 0),1)
+                    beta_temp = 1-0.5*alpha_temp
+                    v_cmd[k+1] = beta_temp*(alpha_temp*v_target+(1-alpha_temp)*S[k,id_AV-1,1])+(1-beta_temp)*v_cmd[k]
+                    u[i_AV] = alpha_k*(v_cmd[k+1]-S[k,id_AV,1])
 
             #error might
             t_x = np.nonzero(u>acel_max)
@@ -262,17 +264,34 @@ controlEnergy = np.sum(S[:,N-1,2]**2) * Tstep
 print("Control energy is",controlEnergy, "J")
 
 #Settling Time
-test = NumStep
-flag = 0
-for test in range(NumStep-2,0,-1):
-    v_minus = S[test,:,1] - V_avg[test]
-    for i in v_minus:
-        if (i > 0.01):
-            flag = 1
+if controllerType != 3 :
+    test = NumStep
+    flag = 0
+    for test in range(NumStep-2,0,-1):
+        v_minus = S[test,:,1] - V_avg[test]
+        for i in v_minus:
+            if (i > 0.01): 
+                flag = 1
+                break
+        if(flag):
             break
-    if(flag):
-        break
-settling_time = test*Tstep
+    settling_time = test*Tstep
+else :
+    test = NumStep
+    flag = 0
+    for test in range(NumStep-2,0,-1):
+        if(test == NumStep-2) :
+            v_minus = S[test,:,1] - S[test,:,1]
+        else :
+            v_minus = S[test,:,1] - S[test+1,:,1]
+        for i in v_minus:
+            if (i > 0.01 or i < -0.01): 
+                flag = 1
+                break
+        if(flag):
+            break
+    settling_time = test*Tstep
+
 print("Settling Time is",settling_time, "s")
 
 #Maximum Spacing in fron of AV
