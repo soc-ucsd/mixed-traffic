@@ -10,23 +10,26 @@ from functions.getPercentile import getAVIDPercentile
 from pandas import DataFrame
 
 # parameters setting
-N = 20
+N = 45
 platoon_bool = 0
 controllerType = 1
 
 if N == 20:
     # 20 autonomous vehicles
     AV_array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20]
+    TotalTime = 100
 
 if N == 45:
     # 45 autonomous vehicles
     AV_array = [0, 3, 5, 7, 9, 12, 14, 16, 18, 21, 23, 32, 45]
+    TotalTime = 100
 
 if N == 70:
     # 70 autonomous vehicles
     #AV_array = [0, 4, 7, 11, 14, 18, 21, 25, 28, 32, 35, 53, 70]
     #AV_array = [0, 4, 7, 11, 14, 18, 21]
     AV_array = [25, 28, 32, 35, 53, 70]
+    TotalTime = 200
 
 # Result array
 Control_energy = []
@@ -106,7 +109,6 @@ for i in range(len(AV_array)):
     sd = 8  # minimum value is zero since the vehicle length is ignored
 
     # Simulation
-    TotalTime = 100
     Tstep = 0.01
     NumStep = int(TotalTime / Tstep)
     # Scenario
