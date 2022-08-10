@@ -11,10 +11,18 @@ from functions.getPercentile import getAVIDPercentile
 # In[1] 
 ''' Key Parameters'''
 
-N = 20
-AV_number = 10 # 0 or 1 or 2 or 4
+# For penetration rate testing : (0%, 5%, 10%, 15%, 20%, 25%, 30%, 35%, 40%, 45%, 50%, 75%, 100%)
+# If N = 20: AV Numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20]
+# If N = 45: AV Numbers = [0, 3, 5, 7, 9, 12, 14, 16, 18, 21, 23, 32, 45]
+# If N = 70: AV Numbers = [0, 4, 7, 11, 14, 18, 21, 25, 28, 32, 35, 53, 70]
+
+N = 45
+AV_number = 45
 
 platoon_bool = 1 # 0 or 1
+
+#Controller Parameter
+controllerType = 3
 
 # Position of the perturbation
 brakeID = 4
@@ -34,8 +42,7 @@ ID = np.zeros([N]) #0. Manually Driven  1. Controller
 if mix:
     ActuationTime = 0
     ID = getAVIDPercentile(N, platoon_bool, ID, AV_number)
-#Controller Parameter
-controllerType = 3
+
 
 if mix == 1:
     gammaType = 1
@@ -186,7 +193,7 @@ for k in range(0,NumStep-2):
                 d2 = 1.0
                 d3 = 0.5
                 
-                for i_AV in range(0,AV_number):
+                for i_AV in range(AV_number):
                     id_AV = AV_position[0][i_AV]
                     dv_temp = min(S[k,id_AV-1,1]-S[k,id_AV,1],0)
                                 
@@ -214,7 +221,7 @@ for k in range(0,NumStep-2):
                 v_catch = 1
                 gamma_temp = 2
                 int_num = int(k-26/Tstep)
-                for i_AV in range(0,AV_number):
+                for i_AV in range(AV_number):
                     id_AV = AV_position[0][i_AV]
                     if int_num <= 0:
                         v_hisAvg = np.mean(S[0:k,id_AV,1])
@@ -259,14 +266,10 @@ Wsize = 20
 # In[7] 
 # Velocity
 
-#Control Energy
-controlEnergy = np.sum(S[:,N-1,2]**2) * Tstep
-print("Control energy is",controlEnergy, "J")
-
 #Settling Time
+test = NumStep
+flag = 0
 if controllerType != 3 :
-    test = NumStep
-    flag = 0
     for test in range(NumStep-2,0,-1):
         v_minus = S[test,:,1] - V_avg[test]
         for i in v_minus:
@@ -275,10 +278,7 @@ if controllerType != 3 :
                 break
         if(flag):
             break
-    settling_time = test*Tstep
 else :
-    test = NumStep
-    flag = 0
     for test in range(NumStep-2,0,-1):
         if(test == NumStep-2) :
             v_minus = S[test,:,1] - S[test,:,1]
@@ -290,29 +290,37 @@ else :
                 break
         if(flag):
             break
-    settling_time = test*Tstep
+settling_time = test*Tstep
+print("Settling Time is",round(settling_time,2), "s")
 
-print("Settling Time is",settling_time, "s")
-
-#Maximum Spacing in fron of AV
+#Maximum Spacing 
 max_space = 0
 for k in range(NumStep):
-    curr_space = S[k,-2,0]-S[k,-1,0]
-    if ( curr_space > max_space):
-        max_space = curr_space
+    for i_AV in range(AV_number) :
+        id_AV = AV_position[0][i_AV]
+        curr_space = S[k,id_AV-1,0]-S[k,id_AV,0]
+        if ( curr_space > max_space):
+            max_space = curr_space
+print("Maximum Spacing in front of AV is ", round(max_space,2))
 
-print("Maximum Spacing in front of AV is ", round(max_space,2) )
+#Control Energy
+controlEnergy = 0
+for i_AV in range(AV_number) :
+        id_AV = AV_position[0][i_AV]
+        controlEnergy += np.sum(S[:,id_AV,2]**2) * Tstep
+print("Control energy is",round(controlEnergy,2), "J")
 
-#Average settled velocity
-print("Average settled velocity is ", round(np.mean(S[(int((0.9*TotalTime)/Tstep)):,:,1]),2), " m/s")
+# #Average settled velocity
+# print("Average settled velocity is ", round(np.mean(S[(int((0.9*TotalTime)/Tstep)):,:,1]),2), " m/s")
 
-spacing_or_velocity = 1 # 0 or 1 
+
+# 3-D projection
+
+spacing_or_velocity = -1 # 0 or 1 
 #Display data
 
 fig = plt.figure()
 x = np.arange(0,NumStep)
-
-# syntax for 3-D projection
 
 #y = np.linspace(0,20,20)
 
