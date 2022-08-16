@@ -11,6 +11,6 @@
 * [Cooperative Formation of Multiple CAVs](cooperative_formation_multiple.md)
     - [Getting Started](cooperative_formation_multiple.md#Getting Started)
     - [Experiment Results](cooperative_formation_multiple.md#Experiment Results)
-* [Numerical Data] (numerical_data.md)
+* [Numerical Experiments](numerical_data.md)
     - [Setup](numerical_data.md#Getting Started)
     - [Results](numerical_data.md#Experiment Results)
