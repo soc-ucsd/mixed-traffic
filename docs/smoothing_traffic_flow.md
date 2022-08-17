@@ -9,7 +9,22 @@ and reachability of a mixed traffic system consisting of HDVs and AVs in a ring 
 
 ## Getting Started
 
-### Matlab Implementation
+### Environment Setup
+
+To run the code, the Modeling package, [YALMIP](https://yalmip.github.io/), and the optimization solver, [MOSEK](https://www.mosek.com/), are needed to solve the semidefinite program in controller synthesis.
+
+
+YALMIP:
+
+Please install YALMIP using the provided link. Follow the Tutorial in the YALMIP website and download the YALMIP file. Once you obtained the YALMIP folder. We can put the whole YALMIP folder into our project folder.
+
+MOSEK:
+
+Please follow the installation instruction in MOSEK website to install MOSEK on your machine. ** Please remember to apply a license from the MOSEK website. After obtaining the license, you can put it in your project folder and your system documnent MOSEK path.** The path is different depends on your system.
+
+
+
+## Matlab Implementation
 
 #### Main File
 
@@ -608,7 +623,7 @@ end
 
 
 
-### Python Implementation
+## Python Implementation
 The Python implementation follows three main scenarios - 
 
 Scenario 1 is sharp braking at 20 seconds.
