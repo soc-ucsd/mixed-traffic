@@ -86,6 +86,7 @@ This function take the a series of parameters setting as input to generate the s
 setup indicates a system-level consideration.
 
 
+
 ```matlab
 function [A,B1,B2,Q,R] = system_model(N,AV_number,alpha,beta,v_max,s_st,s_go,s_star,gamma_s,gamma_v,gamma_u)
 
@@ -143,6 +144,7 @@ end
 
 
 ##### [pattern_generation.m](https://github.com/soc-ucsd/mixed-traffic/blob/main/structured_optimal_control/_fcn/pattern_generation.m)
+
 
 
 ```matlab
@@ -243,6 +245,8 @@ end
 
 ##### [pattern_invariance.m](https://github.com/soc-ucsd/mixed-traffic/blob/main/structured_optimal_control/_fcn/pattern_invariance.m)
 
+This function will generate a maximally sparsity-wise invariant (MSI) subplace with respect to X. More detailed can be refered to paper "On Separable Quadratic Lyapunov Functions for Convex Design of Distributed Controllers".
+
 ```matlab
 function [ X ] = pattern_invariance( S )
 % Generate a maximally sparsity-wise invariant (MSI) subplace with respect to X
@@ -275,6 +279,8 @@ end
 
 ```
 ##### [optsi.m](https://github.com/soc-ucsd/mixed-traffic/tree/main/structured_optimal_control/_fcn)
+
+For a given pattern of K, calculate the optimal feedback gain using sparsity invirance. Where A indicate the system matrix, B1 indicate the distrubance matrix and B2 indicate the control input matrix.
 
 ```matlab
 function [K_Opt,Info] = optsi(A,B1,B2,K_Pattern,Q,R)
