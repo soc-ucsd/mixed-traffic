@@ -22,6 +22,7 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
+  - tables
 # Configuration
 theme:
   name: material
