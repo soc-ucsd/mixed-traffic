@@ -29,8 +29,8 @@ Each controller was tested for all penetration rates in both configurations (pla
 | Penetration Rate (%) | Settling Time (s) | Maximum Spacing (m) | Control Energy (J) |
 | :---                 |:---               |:---                 |:---                |
 | 0	 |100    |-      |-     |
-|5	 |63.95	 |39.99	 |509.5 |
-|10	 |60.3	 |28.23	 |393.36|
+|5	  |63.95	 |39.99	 |509.5 |
+|10	 |60.3	  |28.23	 |393.36|
 |15	 |51.13  |24.93	 |263.53|
 |20	 |48.97	 |24.96	 |236.01|
 |25	 |48.23	 |25.18	 |232.4 |
@@ -58,14 +58,14 @@ Each controller was tested for all penetration rates in both configurations (pla
 |45	 |76.17	 |25.57	 |230.2 |
 |50	 |76.99	 |25.56	 |230.24|
 |75	 |77.03	 |25.49	 |231.38|
-|100 |65.7	 |32.35	 |206.49|
+|100 |65.7	  |32.35	 |206.49|
 
 </td><td>
   
 | Penetration Rate (%) | Settling Time (s) | Maximum Spacing (m) | Control Energy (J) |
 | :---                 |:---               |:---                 |:---                |
-|0	 |200	   |-	     |-     |
-|5	 |105.3	 |24.47	 |239.71|
+|0	  |200	   |-	     |-     |
+|5	  |105.3	 |24.47	 |239.71|
 |10	 |102	   |25.26	 |231.05|
 |15	 |90.07	 |25.49	 |230.11|
 |20	 |78	   |25.55	 |229.99|
@@ -143,7 +143,7 @@ Each controller was tested for all penetration rates in both configurations (pla
 
 | Penetration Rate (%) | Settling Time (s) | Maximum Spacing (m) | Control Energy (J) |
 | :---                 |:---               |:---                 |:---                |
-|0	 |100. 	 |-	     |-     |
+|0	 |100  	 |-	     |-     |
 |5	 |47.36	 |44.51	 |100.93|
 |10	 |48.54	 |47.63	 |183.58|
 |15	 |59.77	 |48.16	 |257.51|
