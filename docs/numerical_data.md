@@ -381,3 +381,11 @@ Each controller was tested for all penetration rates in both configurations (pla
 |100 |107.5	 |55.59	 |210.52|
   
 </td></tr></table>
+
+
+| Method      | Description                          |
+| ----------- | ------------------------------------ |
+| `GET`       | :material-check:     Fetch resource  |
+| `PUT`       | :material-check-all: Update resource |
+| `DELETE`    | :material-close:     Delete resource |
+
