@@ -20,7 +20,7 @@ Please install YALMIP using the provided link. Follow the Tutorial in the YALMIP
 
 MOSEK:
 
-Please follow the installation instruction in MOSEK website to install MOSEK on your machine. ** Please remember to apply a license from the MOSEK website. After obtaining the license, you can put it in your project folder and your system documnent MOSEK path.** The path is different depends on your system.
+Please follow the installation instruction in MOSEK website to install MOSEK on your machine. ** Please remember to apply a license from the MOSEK website. After obtaining the license, you can put it in your project folder and your system document MOSEK path.** The path is different depends on your system.
 
 
 ## Matlab Implementation
