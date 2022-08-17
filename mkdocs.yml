@@ -14,7 +14,7 @@ nav:
     - Smoothing Traffic Flow: smoothing_traffic_flow.md
     - Structured Optimal Control: structured_optimal_control.md
     - Cooperative Formation Multiple: cooperative_formation_multiple.md
-    - Penetration rate data: numerical_data.md
+    - Penetration Rate Data: numerical_data.md
     
 markdown_extensions:
   - pymdownx.highlight:
