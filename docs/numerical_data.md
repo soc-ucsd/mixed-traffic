@@ -25,6 +25,28 @@ Each controller was tested for all penetration rates in both configurations (pla
 
 ### Platoon Case
 
+#### Linear Optimal Control
+
+
+|      20 vehicles     |                   |                     |                    |   |
+|:--------------------:|-------------------|---------------------|--------------------|---|
+| Penetration Rate (%) | Settling Time (s) | Maximum Spacing (m) | Control Energy (J) |   |
+|           0          |        100        |          -          |          -         |   |
+|           5          |       63.95       |        39.99        |        509.5       |   |
+|          10          |        60.3       |        28.23        |       393.36       |   |
+|          15          |       51.13       |        24.93        |       263.53       |   |
+|          20          |       48.97       |        24.96        |       236.01       |   |
+|          25          |       48.23       |        25.18        |        232.4       |   |
+|          30          |       51.55       |        25.31        |        230.9       |   |
+|          35          |       54.23       |        25.37        |       230.17       |   |
+|          40          |       56.26       |        25.43        |       229.89       |   |
+|          45          |       58.09       |        25.49        |       229.99       |   |
+|          50          |       59.36       |        25.58        |       230.11       |   |
+|          75          |       59.35       |        25.56        |       226.92       |   |
+|          100         |       52.36       |        32.33        |       205.54       |   |
+
+
+
 <p align='center'><b> Linear Optimal </b></p>
 <table>
 <tr><th> N = 20 </th><th> N = 45 </th><th> N = 70 </th></tr>
