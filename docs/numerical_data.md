@@ -21,6 +21,35 @@ Three AV controllers were tested in the simulation :
  -  Linear Optimal Control
 Each controller was tested for all penetration rates in both configurations (platoon and uniform), for all N values. 
 
+## Experiment Result
+
+### Platoon Case
+
+#### Penetration Rate vs Settling Time
+
+![Alt Text](images/penetration_rate_data/Platoon/Platoon_N=20_settlingtime.png)
+
+![Alt Text](images/penetration_rate_data/Platoon/Platoon_N=45_settlingtime.png)
+
+![Alt Text](images/penetration_rate_data/Platoon/Platoon_N=70_settlingtime.png)
+
+#### Penetration Rate vs Maximum Spacing
+
+![Alt Text](images/penetration_rate_data/Platoon/Platoon_N=20_maximum_spacing.png)
+
+![Alt Text](images/penetration_rate_data/Platoon/Platoon_N=45_maximum_spacing.png)
+
+![Alt Text](images/penetration_rate_data/Platoon/Platoon_N=70_maximum_spacing.png)
+
+
+#### Penetration Rate vs Control Energy
+
+![Alt Text](images/penetration_rate_data/Platoon/Platoon_N=20_control_energy.png)
+
+![Alt Text](images/penetration_rate_data/Platoon/Platoon_N=45_control_energy.png)
+
+![Alt Text](images/penetration_rate_data/Platoon/Platoon_N=70_control_energy.png)
+
 ## Raw Data
 
 ### Platoon Case
