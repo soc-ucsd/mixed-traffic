@@ -1,9 +1,7 @@
 # Smoothing Traffic Flow
 
-Although large-scale numerical simulations and small-scale experiments have shown promising results, 
-a comprehensive theoretical understanding to smooth traffic flow via AVs is lacking. Here, from a 
-control-theoretic perspective, we establish analytical results on the controllability, stabilizability, 
-and reachability of a mixed traffic system consisting of HDVs and AVs in a ring road.
+Autonomous vehicle is essential for control the traffic flow and would have higher potential if number of autonomous vehicles increases. From our analysis, 5% proportion of autonomous vehicles would be able to increase the traffic speed by more than 6%. This is very possible nowadays, and with more autonomous vehicles on highway the average speed will keep raising. We proved this by using control theorem framework and considered each autonomous vehicles as controllable nodes. We analysis controllability and stability of the system and designed a control strategy for autonomous vehicles to achieve the ability to smooth mixed traffic flow. In testing, we designed a ring road, for convenience, with mixed traffic driving inside, using the control strategy and get the analytical results on controllability, stability, and reachability. 
+
 
 ![Alt Text](images/smoothing_traffic_flow/mixed_traffic_flow_schematic diagram.png)
 
@@ -662,7 +660,17 @@ All the vehicles are HDVs: traffic wave emerges
 There is one AV: dissipating traffic wave
 ![Alt Text](images/smoothing_traffic_flow/smoothing_traffic_flow_all_HDVs.gif)
 
-This folder contains files for test cases.
+
+The graphs below represent impulse perturbation in traffic systems on a ring road. The second vehicle has initial perturbation. (a) All vehicles are human driven. (b) The first vehicle is CACC equipped which could adjusts behavior passively due to its direct preceding vehicle. (c)The first vehicle has optimal control strategy which can consider the global behavior of the entire mixed traffic flow. 
+
+By checking of these three graphs, it is obvious that the system with optimal control strategy which could consider global behavior have the best performance. 
+
+![Alt Text](images/smoothing_traffic_flow/Velocity_deviation_a.png)
+![Alt Text](images/smoothing_traffic_flow/Velocity_deviation_b.png)
+![Alt Text](images/smoothing_traffic_flow/Velocity_deviation_c.png)
+
+
+
 
 ## Reference
 
