@@ -371,15 +371,19 @@ end
 
 
 ## Experiment Results
-Two demonstrations are shown below:    
+### Experiment A
+The numerical experiments tested the proposed controller alongside whether or not the proposed condition (equation 28 in the reference paper) for CAV spacing was satisfied. For this, a traffic system of 19 HDVs and 1 CAV was tested on a ring-road setup. Resulting velocity of each vehicle was graphed.
 
-All the vehicles are HDVs: traffic wave emerges
-![Alt Text](images/smoothing_traffic_flow/smoothing_traffic_flow_one_AV.gif)
+![Alt Text](images/structured_optimal_control/Structured-optimal-results.png)
 
-There is one AV: dissipating traffic wave
-![Alt Text](images/smoothing_traffic_flow/smoothing_traffic_flow_all_HDVs.gif)
+The above figure is the velocity profile of each vehicle (Experiment A). (a) All the vehicles are HDVs. (b)—(f) One vehicle is CAV with the proposed method. The desired equilibrium velocity 'v*' is 15 m/s, 16 m/s, 14 m/s in (b), (c)(e), (d)(f), respectively. In (b)(c)(d) the value of s<sub>1</sub>* is determined according to the spacing condition, whereas in (e)(f) the spacing condition is not satisfied.
 
-This folder contains files for test cases.
+### Experiment B
+Experiment B is conducted to test the controller’s ability to dissipate stop-and-go waves. A random noise following the normal distribution, N (0, 0.2), is added to the acceleration signal of each vehicle. This corresponds to the traffic situations where small perturbations are generated naturally inside the traffic flow.
+
+![Alt Text](images/structured_optimal_control/ExpB.png)
+
+The above figure is the velocity profile and trajectory of the 1st, 3rd, 5th, ..., 19th vehicle (Experiment B). In (b), the darker the color, the lower the velocity. From t = 0 seconds to t = 300 seconds and from t = 450 seconds to t = 700 seconds, the proposed controller does not work and all the vehicles are human-driven, while from t = 300 seconds to t = 450 seconds, the proposed controller at vehicle no.1 is activated.
 
 ## Reference
 - Wang, J., Zheng, Y., Xu, Q., Wang, J., & Li, K. (2020). Controllability Analysis and Optimal Control of Mixed Traffic Flow with Human-driven and Autonomous Vehicles. IEEE Transactions on Intelligent Transportation Systems, 1-15.[[pdf](https://wangjw18.github.io/files/2020-arXiv.pdf)]
