@@ -371,15 +371,9 @@ end
 
 
 ## Experiment Results
-Two demonstrations are shown below:    
+The numerical experiments tested the proposed controller alongside whether or not the proposed condition (equation 28 in the reference paper) for CAV spacing was satisfied. For this, a traffic system of 19 HDVs and 1 CAV was tested on a ring-road setup. Resulting velocity of each vehicle was graphed. 
 
-All the vehicles are HDVs: traffic wave emerges
-![Alt Text](images/smoothing_traffic_flow/smoothing_traffic_flow_one_AV.gif)
 
-There is one AV: dissipating traffic wave
-![Alt Text](images/smoothing_traffic_flow/smoothing_traffic_flow_all_HDVs.gif)
-
-This folder contains files for test cases.
 
 ## Reference
 - Wang, J., Zheng, Y., Xu, Q., Wang, J., & Li, K. (2020). Controllability Analysis and Optimal Control of Mixed Traffic Flow with Human-driven and Autonomous Vehicles. IEEE Transactions on Intelligent Transportation Systems, 1-15.[[pdf](https://wangjw18.github.io/files/2020-arXiv.pdf)]
