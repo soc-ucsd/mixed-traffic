@@ -385,6 +385,24 @@ Experiment B is conducted to test the controller’s ability to dissipate stop-a
 
 The above figure is the velocity profile and trajectory of the 1st, 3rd, 5th, ..., 19th vehicle (Experiment B). In (b), the darker the color, the lower the velocity. From t = 0 seconds to t = 300 seconds and from t = 450 seconds to t = 700 seconds, the proposed controller does not work and all the vehicles are human-driven, while from t = 300 seconds to t = 450 seconds, the proposed controller at vehicle no.1 is activated.
 
+### Experiment C
+Experiment C, compares the proposed strategy with two existing heuristic ones: FollowerStopper and PI with Saturation. A perturbation induces a traffic wave in the road setup, and the CAV is used to dissipate a traffic wave, and the time taken with the strategy is compared with the heuristic methods. 
+
+![Alt Text](images/structured_optimal_control/ExpC.png)
+
+The above figure lists vehicle trajectories for all vehicles in Experiment C. (a) All the vehicles are humandriven. (b)-(d) correspond to the cases where vehicle 2,11,20 is under the perturbation, respectively.
+
+The following are the comparison graphs for all three strategies : 
+
+![Alt Text](images/structured_optimal_control/Comp1.png)
+
+The above figure lists vehicle Spacing in Experiment C. Vehicle no.6 is under the perturbation. The grey line and the blue line denote the spacing of HDV
+and CAV, respectively. (a) All the vehicles are HDVs. (b)-(d) correspond to the cases where the CAV is using FollowerStopper, PI with Saturation and the optimal control strategy, respectively.
+
+![Alt Text](images/structured_optimal_control/Comp2.png)
+
+The above figure is a comparison of results at different positions of the perturbation in Experiment C. (a) The maximum spacing of the CAV during the overall process, i.e., max s1(t). (b) The linear quadratic cost for the traffic system, as defined in equation 21 of the reference paper. 
+
 ## Reference
 - Wang, J., Zheng, Y., Xu, Q., Wang, J., & Li, K. (2020). Controllability Analysis and Optimal Control of Mixed Traffic Flow with Human-driven and Autonomous Vehicles. IEEE Transactions on Intelligent Transportation Systems, 1-15.[[pdf](https://wangjw18.github.io/files/2020-arXiv.pdf)]
 - Wang, J., Zheng, Y., Xu, Q., Wang, J., & Li, K. (2019, June). Controllability analysis and optimal controller synthesis of mixed traffic systems. 
