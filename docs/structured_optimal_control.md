@@ -383,8 +383,7 @@ Experiment B is conducted to test the controller’s ability to dissipate stop-a
 
 ![Alt Text](images/structured_optimal_control/ExpB.png)
 
-Velocity profile and trajectory of the 1st, 3rd, 5th, ..., 19th vehicle (Experiment B). In (b), the darker the color, the lower the velocity. From </br> 
-t = 0 seconds to t = 300 seconds and from t = 450 seconds to t = 700 seconds, the proposed controller does not work and all the vehicles are human-driven, while from t = 300 seconds to t = 450 seconds, the proposed controller at vehicle no.1 is activated.
+The above figure is the velocity profile and trajectory of the 1st, 3rd, 5th, ..., 19th vehicle (Experiment B). In (b), the darker the color, the lower the velocity. From t = 0 seconds to t = 300 seconds and from t = 450 seconds to t = 700 seconds, the proposed controller does not work and all the vehicles are human-driven, while from t = 300 seconds to t = 450 seconds, the proposed controller at vehicle no.1 is activated.
 
 ## Reference
 - Wang, J., Zheng, Y., Xu, Q., Wang, J., & Li, K. (2020). Controllability Analysis and Optimal Control of Mixed Traffic Flow with Human-driven and Autonomous Vehicles. IEEE Transactions on Intelligent Transportation Systems, 1-15.[[pdf](https://wangjw18.github.io/files/2020-arXiv.pdf)]
