@@ -375,6 +375,7 @@ end
 The numerical experiments tested the proposed controller alongside whether or not the proposed condition (equation 28 in the reference paper) for CAV spacing was satisfied. For this, a traffic system of 19 HDVs and 1 CAV was tested on a ring-road setup. Resulting velocity of each vehicle was graphed.
 
 ![Alt Text](images/structured_optimal_control/Structured-optimal-results.png)
+
 The above figure is the velocity profile of each vehicle (Experiment A). (a) All the vehicles are HDVs. (b)—(f) One vehicle is CAV with the proposed method. The desired equilibrium velocity 'v*' is 15 m/s, 16 m/s, 14 m/s in (b), (c)(e), (d)(f), respectively. In (b)(c)(d) the value of s<sub>1</sub>* is determined according to the spacing condition, whereas in (e)(f) the spacing condition is not satisfied.
 
 ### Experiment B
