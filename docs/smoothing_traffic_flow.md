@@ -28,11 +28,12 @@ The scenario that autonomous vehicle increases the traffic speed.
 
 ### Stablizing Traffic Flows
 
-(a) Traffic system with Human driven vehicles only is unstable in certain case.
-(b) The mixed traffic system becomes stable after introducing one autonomous vehicle with assigned control strategy.
-(c) The traffic flow with one autonomous vehicle could guide the traffic to a higher stable velocity via controlling the autonomous vehicle. 
+- (a) Traffic system with Human driven vehicles only is unstable in certain case.
+- (b) The mixed traffic system becomes stable after introducing one autonomous vehicle with assigned control strategy.
+- (c) The traffic flow with one autonomous vehicle could guide the traffic to a higher stable velocity via controlling the autonomous vehicle. 
 
 ![Alt Text](images/smoothing_traffic_flow/stablizing_traffic_flow.png)
+
 
 
 ## Getting Started
@@ -703,8 +704,14 @@ By checking of these three graphs, it is obvious that the system with optimal co
 ![Alt Text](images/smoothing_traffic_flow/Velocity_deviation.png)
 
 
-### 
+### Control Energy Experiment
 
+Simulation results after ran 2000 random simulations for different number of cars. 
+
+- (a) the control energy needed to stabilize the traffic flow for each autonomous vehicle.
+- (b) The time required to stabilize the traffic system. 
+
+![Alt Text](images/smoothing_traffic_flow/control_energy.png)
 
 ## Reference
 
