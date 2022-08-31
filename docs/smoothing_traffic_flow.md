@@ -733,7 +733,7 @@ The red color in the right figure means the velocity of vehicles slow down, and 
 
 The comparison of three different strategies of maximum spacing of autonomous vehicle are shown below.
 
-It is obvious that the maximum spacing in PI with Saturation, and Follower stopper is larger than Optimal control strategy. This means that the speed of PI and Follower Stopper is much slower than using optimal control strategy. 
+It is obvious that the maximum spacing in PI with Saturation, and Follower stopper is larger than Optimal control strategy. This means that the velocity of traffic applying PI and Follower Stopper strategies are much slower than using our optimal control strategy. 
 
 
 ![Alt Text](images/smoothing_traffic_flow/maximum_spacing_results.png)
@@ -741,8 +741,9 @@ It is obvious that the maximum spacing in PI with Saturation, and Follower stopp
 
 ### Fuel Consumption Results
 
-The comparison on fuel consumption of three different strategies is shown as following. It is obvious that in every case  Optimal control strategy consume less fuel than other two strategies. 
+The comparison on fuel consumption of three different strategies is shown as following. 
 
+It is observed that our proposed strategy achieves evidently lower fuel consumption than Fol- lowerStopper and PI with Saturation when the perturbation happens within the range from the 1st to the 10th vehicle. This result validates the great potential of our strategy in improving fuel economy. We note that, when the perturbation happens within the range from the 11th to the 20th vehicle, which is ahead of the autonomous vehicle in a small distance, all of the three strategies require the autonomous vehicle to brake hard to guarantee safety. In these cases, the three control strategies have similar performance in terms of fuel consumption.
 
 ![Alt Text](images/smoothing_traffic_flow/fuel_consumption_results.png)
 
