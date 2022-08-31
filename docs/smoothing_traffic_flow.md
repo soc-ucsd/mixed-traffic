@@ -707,7 +707,7 @@ There is one AV: dissipating traffic wave
 ![Alt Text](images/smoothing_traffic_flow/smoothing_traffic_flow_all_HDVs.gif)
 
 
-### Control Energy Experiment
+### Control Energy Results
 
 Simulation results after ran 2000 random simulations for different number of cars. 
 
@@ -717,7 +717,7 @@ Simulation results after ran 2000 random simulations for different number of car
 ![Alt Text](images/smoothing_traffic_flow/control_energy.png)
 
 
-### Velocity Numerical Result
+### Velocity Numerical Results
 
 This is the numerical results for the scenario with a rapid and strong perturbation in the 6th vehicle. 
 
@@ -728,6 +728,24 @@ The red color in the right figure means the velocity of vehicles slow down, and 
 
 
 ![Alt Text](images/smoothing_traffic_flow/velocity_result.png)
+
+### Maximum Spacing Results
+
+The comparison of three different strategies of maximum spacing of autonomous vehicle are shown below.
+
+It is obvious that the maximum spacing in PI with Saturation, and Follower stopper is larger than Optimal control strategy. This means that the speed of PI and Follower Stopper is much slower than using optimal control strategy. 
+
+
+![Alt Text](images/smoothing_traffic_flow/maximum_spacing_results.png)
+
+
+### Fuel Consumption Results
+
+The comparison on fuel consumption of three different strategies is shown as following. It is obvious that in every case  Optimal control strategy consume less fuel than other two strategies. 
+
+
+![Alt Text](images/smoothing_traffic_flow/fuel_consumption_results.png)
+
 
 ## Reference
 
