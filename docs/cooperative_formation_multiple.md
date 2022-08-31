@@ -436,15 +436,23 @@ end
 #### Functions
 
 ## Experiment results
-Two demonstrations are shown below:    
+Here, we get numerical data on the optimal formation of AVs in traffic systems.
 
-Uniform Distribution:
-![Alt Text](images/cooperative_formation_multiple/platoon_formation.gif)
+### Experiment 1
+Here, the parameters of the AVs were fixed, and the distribution was varied in order to identify the optimal formation of AVs in a mixed traffic system.
 
-Platoon Formation:
-![Alt Text](images/cooperative_formation_multiple/uniform_distribution.gif)
+![Alt Text](images/cooperative_formation_multiple/Exp1.png)
 
-This folder contains files for test cases.
+The above image lists the optimal formation under specific cases (n = 12). In each panel, k = 2, 3, 4 from left to right. v<sub>max</sub> = 20, s<sub>st</sub> = 5, s<sub>go</sub> = 35, γ<sub>s</sub> = 0.01, γ<sub>v</sub> = 0.05, γ<sub>u</sub> = 0.1.
+
+Here, we list the results of testing the above formations in a Matlab simulation.
+
+![Alt Text](images/cooperative_formation_multiple/Exp1Res.png)
+
+The above image lists the optimal and worst formation at various parameter setups. Red circles, blue triangles, and gray stars denote uniform distribution, platoon formation, and abnormal formations, respectively. In each panel, the left figure shows the optimal formation, where the darker the red, the larger the value of ξ; the darker the blue, the smaller the value of ξ. In contrast, the right figure shows the worst formation, where the darker the blue, the larger the value of ξ; the darker the red, the smaller the value of ξ. (a)(b) γ<sub>s</sub> = 0.01, γ<sub>v</sub> = 0.05, γ<sub>u</sub> = 0.1. (c)(d) γ<sub>s</sub> = 0.03, γ<sub>v</sub> = 0.15, γ<sub>u</sub> = 0.1.
+
+
+### Experiment 2
 
 ## Reference
 
