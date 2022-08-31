@@ -23,8 +23,17 @@ The scenario that autonomous vehicle increases the traffic speed.
 (a) Is the scenario that all vehicles are human driven and the space between each two vehicles is equal for homogeneous car following dynamics. 
 (b) Is the case of mixed traffic systems. The Autonomous vehicle can follow the front car in a short distance. As a result, the rear vehicle will have a larger space and equilibrium velocity increases as the distance increase. Hence, the entire traffic flow speed increase after adding one autonomous vehicle. 
 
-
 ![Alt Text](images/smoothing_traffic_flow/Traffic_scenario.png)
+
+
+### Stablizing Traffic Flows
+
+(a) Traffic system with Human driven vehicles only is unstable in certain case.
+(b) The mixed traffic system becomes stable after introducing one autonomous vehicle with assigned control strategy.
+(c) The traffic flow with one autonomous vehicle could guide the traffic to a higher stable velocity via controlling the autonomous vehicle. 
+
+![Alt Text](images/smoothing_traffic_flow/stablizing_traffic_flow.png)
+
 
 ## Getting Started
 
