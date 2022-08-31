@@ -25,6 +25,18 @@ The scenario that autonomous vehicle increases the traffic speed.
 
 ![Alt Text](images/smoothing_traffic_flow/Traffic_scenario.png)
 
+### Impulse Perturbation
+
+The graphs below represent impulse perturbation in traffic systems on a ring road. The second vehicle has initial perturbation. 
+
+- (a) All vehicles are human driven. 
+- (b) The first vehicle is CACC equipped which could adjusts behavior passively due to its direct preceding vehicle. 
+- (c)The first vehicle has optimal control strategy which can consider the global behavior of the entire mixed traffic flow. 
+
+By checking of these three graphs, it is obvious that the system with optimal control strategy which could consider global behavior have the best performance. 
+
+![Alt Text](images/smoothing_traffic_flow/Velocity_deviation.png)
+
 
 ### Stablizing Traffic Flows
 
@@ -693,15 +705,6 @@ All the vehicles are HDVs: traffic wave emerges
 
 There is one AV: dissipating traffic wave
 ![Alt Text](images/smoothing_traffic_flow/smoothing_traffic_flow_all_HDVs.gif)
-
-
-### Impulse Perturbation
-
-The graphs below represent impulse perturbation in traffic systems on a ring road. The second vehicle has initial perturbation. (a) All vehicles are human driven. (b) The first vehicle is CACC equipped which could adjusts behavior passively due to its direct preceding vehicle. (c)The first vehicle has optimal control strategy which can consider the global behavior of the entire mixed traffic flow. 
-
-By checking of these three graphs, it is obvious that the system with optimal control strategy which could consider global behavior have the best performance. 
-
-![Alt Text](images/smoothing_traffic_flow/Velocity_deviation.png)
 
 
 ### Control Energy Experiment
