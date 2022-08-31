@@ -24,8 +24,7 @@ The scenario that autonomous vehicle increases the traffic speed.
 (b) Is the case of mixed traffic systems. The Autonomous vehicle can follow the front car in a short distance. As a result, the rear vehicle will have a larger space and equilibrium velocity increases as the distance increase. Hence, the entire traffic flow speed increase after adding one autonomous vehicle. 
 
 
-![Alt Text](images/smoothing_traffic_flow/Traffic_scenario_a.png)
-![Alt Text](images/smoothing_traffic_flow/Traffic_scenario_b.png)
+![Alt Text](images/smoothing_traffic_flow/Traffic_scenario.png)
 
 ## Getting Started
 
