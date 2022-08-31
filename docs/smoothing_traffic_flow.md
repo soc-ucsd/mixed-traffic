@@ -675,7 +675,7 @@ This code sets up our optimization problem, generating a
 
 ## Experiment Results
 
-### Animation and Velocity figures
+### Animation
 
 Two demonstrations are shown below:    
 
