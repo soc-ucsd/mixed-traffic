@@ -453,6 +453,23 @@ The above image lists the optimal and worst formation at various parameter setup
 
 
 ### Experiment 2
+The second experiment was carried out to make further comparisons between the two predominant formations at differentsystem scales </br> n ∈ [8,40].
+
+![Alt Text](images/cooperative_formation_multiple/Exp2.png)
+
+The above image shows the comparison between platoon formation and uniform distribution at different system scales. In OVM model,</br> α = 0.6, β = 0.9, s∗ = 20, v<sub>max</sub> = 30, s<sub>st</sub> = 5, s<sub>go</sub> = 35. (a) γ<sub>s</sub> = 0.01, γ<sub>v</sub> = 0.05, γ<sub>u</sub> = 0.1. (b) γ<sub>s</sub> = 0.03, γ<sub>v</sub> = 0.15, γ<sub>u</sub> = 0.1.
+
+
+### Experiment 3
+The third experiment featured non-linear traffic simulations to compare the co-operative and platooning formations. Here, a perturbation is used to induce a traffic wave in a system, and the AVs are used to smooth the wave. We vary the location of the perturbation and the formation to get an accurate comparison.
+
+![Alt Text](images/cooperative_formation_multiple/Exp3A.png)
+
+The above image shows the trajectory and velocity profiles of each vehicle when the perturbation happens at the 15th (n = 20, k = 4) vehicle. In each panel, blue curves and gray curves represent the trajectories or velocity profiles of the AVs and the HDVs, respectively. The perturbation happens at the 15th vehicle. The AVs are organized into a platoon (S = {9, 10, 11, 12}) in (a), while the AVs are distributed uniformly (S = {3, 8, 13, 18}) in (b).
+
+![Alt Text](images/cooperative_formation_multiple/Exp3B.png)
+
+The above image shows the performance comparison at different positions of the perturbation (n = 20, k = 4). The indices with blue pillars or red pillars represent the location of AVs under a platoon formation (S = {3, 8, 13, 18}) or a uniform distribution (S = {9, 10, 11, 12}), respectively. (a) The time when the traffic flow is stabilized. (b) The linear quadratic cost, defined as an integral of Q and R as defined in equation 25 of the reference paper. 
 
 ## Reference
 
