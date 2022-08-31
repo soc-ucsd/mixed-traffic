@@ -735,6 +735,7 @@ The comparison of three different strategies of maximum spacing of autonomous ve
 
 It is obvious that the maximum spacing in PI with Saturation, and Follower stopper is larger than Optimal control strategy. This means that the velocity of traffic applying PI and Follower Stopper strategies are much slower than using our optimal control strategy. 
 
+We observe that if all the vehicles are human-driven, the perturbation may grow stronger during the propagation process (Figure a), while the autonomous vehicle with an optimal control strategy can respond actively to attenuate the perturbation and stabilize the traffic flow (Figure b). Here we only show the case where the 6th vehicle is under the strong perturbation. Indeed, the experiment results confirm that our strategy allows one autonomous vehicle to dampen strong traffic waves wherever they come from.
 
 ![Alt Text](images/smoothing_traffic_flow/maximum_spacing_results.png)
 
