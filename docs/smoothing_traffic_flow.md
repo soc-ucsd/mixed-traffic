@@ -714,6 +714,8 @@ Simulation results after ran 2000 random simulations for different number of car
 - (a) the control energy needed to stabilize the traffic flow for each autonomous vehicle.
 - (b) The time required to stabilize the traffic system. 
 
+It is clear that both the settling time and the control energy of each autonomous vehicle decrease by a factor of two approximately, when there are two autonomous vehicles in the traffic system uniformly. Based on the results, we may estimate the market penetration rate of autonomous vehicles to control traffic flow effectively when adopting the optimal control strategy. In the scenario of the following figure, if one wants to reject the influence of the perturbation on traffic flow within 30 seconds, a single autonomous vehicle can control the traffic flow consisting of around 20 HDVs. This number agrees with the results from real-world experiments
+
 ![Alt Text](images/smoothing_traffic_flow/control_energy.png)
 
 
@@ -726,6 +728,7 @@ This is the numerical results for the scenario with a rapid and strong perturbat
 
 The red color in the right figure means the velocity of vehicles slow down, and color yellow and white means fast. Here it is obvious that in scenario (a) there are more red which means slower than scenario (b).
 
+We observe that if all the vehicles are human-driven, the perturbation may grow stronger during the propagation process (Figure a), while the autonomous vehicle with an optimal control strategy can respond actively to attenuate the perturbation and stabilize the traffic flow (Figure b). Here we only show the case where the 6th vehicle is under the strong perturbation. Indeed, the experiment results confirm that our strategy allows one autonomous vehicle to dampen strong traffic waves wherever they come from.
 
 ![Alt Text](images/smoothing_traffic_flow/velocity_result.png)
 
@@ -734,8 +737,6 @@ The red color in the right figure means the velocity of vehicles slow down, and 
 The comparison of three different strategies of maximum spacing of autonomous vehicle are shown below.
 
 It is obvious that the maximum spacing in PI with Saturation, and Follower stopper is larger than Optimal control strategy. This means that the velocity of traffic applying PI and Follower Stopper strategies are much slower than using our optimal control strategy. 
-
-We observe that if all the vehicles are human-driven, the perturbation may grow stronger during the propagation process (Figure a), while the autonomous vehicle with an optimal control strategy can respond actively to attenuate the perturbation and stabilize the traffic flow (Figure b). Here we only show the case where the 6th vehicle is under the strong perturbation. Indeed, the experiment results confirm that our strategy allows one autonomous vehicle to dampen strong traffic waves wherever they come from.
 
 ![Alt Text](images/smoothing_traffic_flow/maximum_spacing_results.png)
 
