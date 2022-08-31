@@ -716,6 +716,19 @@ Simulation results after ran 2000 random simulations for different number of car
 
 ![Alt Text](images/smoothing_traffic_flow/control_energy.png)
 
+
+### Velocity Numerical Result
+
+This is the numerical results for the scenario with a rapid and strong perturbation in the 6th vehicle. 
+
+- (a) Human driven vehicle only
+- (b) Mixed traffic system has an autonomous vehicle that adopts the optimal control strategy. 
+
+The red color in the right figure means the velocity of vehicles slow down, and color yellow and white means fast. Here it is obvious that in scenario (a) there are more red which means slower than scenario (b).
+
+
+![Alt Text](images/smoothing_traffic_flow/velocity_result.png)
+
 ## Reference
 
 - Zheng, Y., Wang, J., & Li, K. (2020). Smoothing traffic flow via control of autonomous vehicles. *IEEE Internet of Things Journal*, *7*(5), 3882-3896.[[pdf](https://wangjw18.github.io/files/2018-arXiv.pdf)]
