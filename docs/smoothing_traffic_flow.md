@@ -692,9 +692,7 @@ The graphs below represent impulse perturbation in traffic systems on a ring roa
 
 By checking of these three graphs, it is obvious that the system with optimal control strategy which could consider global behavior have the best performance. 
 
-![Alt Text](images/smoothing_traffic_flow/Velocity_deviation_a.png)
-![Alt Text](images/smoothing_traffic_flow/Velocity_deviation_b.png)
-![Alt Text](images/smoothing_traffic_flow/Velocity_deviation_c.png)
+![Alt Text](images/smoothing_traffic_flow/Velocity_deviation.png)
 
 
 ### 
