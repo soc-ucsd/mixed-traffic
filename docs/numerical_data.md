@@ -1,6 +1,11 @@
-Here, we list the results of experimentation with the Python simulation. 
+# SRIP 2022 Project: Python Simulations and Numerical Experiments
 
-# Penetration Rate
+- Author: Anish Kulkarni, Yanzhi Yao
+- Advisor: Yang Zheng
+
+Here, we list some python simulations and numerical experiment results, which was led by Anish Kulkarni and Yanzhi Yao in the summer of 2022. 
+
+## Penetration Rate
 The first experiment conducted involved varying the penetration rate of AVs in a mixed traffic system of N vehicles. This variation was done in terms of a percentage value (0%, 5%, 10%, 15%, 20%, 25%, 30%, 35%, 40%, 45%, 50%, 75%, 100%) - as in, what percentage of the N vehicles were autonomous. 
 
 
