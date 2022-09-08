@@ -1,6 +1,6 @@
 # SRIP 2022 Project: Python Simulations and Numerical Experiments
 
-- Author: Anish Kulkarni, Yanzhi Yao
+- Authors: Anish Kulkarni, Yanzhi Yao
 - Advisor: Yang Zheng
 
 Here, we list some python simulations and numerical experiment results, which was led by Anish Kulkarni and Yanzhi Yao in the summer of 2022. 
