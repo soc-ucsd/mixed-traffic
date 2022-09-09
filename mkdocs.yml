@@ -7,7 +7,7 @@ repo_url: https://github.com/soc-ucsd/mixed-traffic
 edit_uri: edit/main/docs
 
 # Copyright
-copyright: Copyright &copy; 2022 soc Lab
+copyright: Copyright &copy; 2022 SOC Lab
 
 nav:
     - Welcome: index.md
