@@ -2,7 +2,7 @@
 
 - Authors: Anish Kulkarni, Yanzhi Yao
 - Advisor: Yang Zheng
-- Slides: [Summer_Research_Conference](/docs/Summer_Research_Conference_2022.pdf)
+- Slides: [Summer_Research_Conference](https://docs.google.com/presentation/d/1TmJLyyWzn3yRkOp7Arv4sMOJvpLOkLZRWA0jbsv1El4/edit?usp=sharing)
 
 Here, we list some python simulations and numerical experiment results, which was led by Anish Kulkarni and Yanzhi Yao in the summer of 2022. 
 
