@@ -2,7 +2,7 @@
 
 - Authors: Anish Kulkarni, Yanzhi Yao
 - Advisor: Yang Zheng
-- Slides: [slides](/docs/images/penetration_rate_data/Summer Research Conference 2022.pdf)
+- Slides: [slides](/Summer Research Conference 2022.pdf)
 
 Here, we list some python simulations and numerical experiment results, which was led by Anish Kulkarni and Yanzhi Yao in the summer of 2022. 
 
