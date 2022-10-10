@@ -31,7 +31,6 @@ Each controller was tested for all penetration rates in both configurations (pla
 
 Using all of the raw data obtained through the simulation, we were able to create several graphs detailing the results of the experiment. 
 
-* INSERT IMAGES * 
 
 ### Platoon Case
 
