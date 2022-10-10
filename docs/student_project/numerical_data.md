@@ -85,7 +85,7 @@ Each controller was tested for all penetration rates in both configurations (pla
 ![Alt Text](images/penetration_rate_data/Uniform/Uniform_N=70_control_energy.png)
 
 
-## Raw Data
+## Experiment Data
 
 [Experiment Data](https://docs.google.com/spreadsheets/d/1muLcmCCUdFwuMU2z9FdTxCUI8RmbDvqNfVlfMRN3k_Q/edit?usp=sharing)
    
