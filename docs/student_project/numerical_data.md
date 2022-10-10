@@ -29,6 +29,10 @@ Each controller was tested for all penetration rates in both configurations (pla
 
 ## Experiment Result
 
+Using all of the raw data obtained through the simulation, we were able to create several graphs detailing the results of the experiment. 
+
+* INSERT IMAGES * 
+
 ### Platoon Case
 
 #### Penetration Rate vs Settling Time
@@ -90,11 +94,6 @@ Each controller was tested for all penetration rates in both configurations (pla
 [Experiment Data](https://docs.google.com/spreadsheets/d/1muLcmCCUdFwuMU2z9FdTxCUI8RmbDvqNfVlfMRN3k_Q/edit?usp=sharing)
    
 
-
-## Result Graphs
-Using all of the raw data obtained through the simulation, we were able to create several graphs detailing the results of the experiment. 
-
-* INSERT IMAGES * 
 
 ## Analysis
 From the data, we can infer several aspects of each controller and their efficacy - 
