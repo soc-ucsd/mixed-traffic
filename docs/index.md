@@ -18,10 +18,10 @@
     - [Matlab Implementation](cooperative_formation_multiple.md#matlab-implementation)
     - [Python Implementation](cooperative_formation_multiple.md#python-implementation)
     - [Experiment Results](cooperative_formation_multiple.md#experiment-results)
-    
+
 * [Numerical Experiments](numerical_data.md)
-    - [Setup](student_project/numerical_data.md#Getting Started)
-    - [Experiment Results](student_project/numerical_data.md#Experiment Results)
-    - [Experiment Data](student_project/numerical_data.md#Experiment Data)
-    - [Analysis](student_project/numerical_data.md#Experiment Data)
+    - [Setup](student_project/numerical_data.md#setup)
+    - [Experiment Results](student_project/numerical_data.md#experiment-result)
+    - [Experiment Data](student_project/numerical_data.md#experiment-data)
+    - [Analysis](student_project/numerical_data.md#analysis)
 
