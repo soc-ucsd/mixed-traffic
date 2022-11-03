@@ -33,6 +33,7 @@ theme:
     - navigation.tabs
     - navigation.sections
     - navigation.expand
+    - navigation.tracking
   language: en
   icon:
     repo: fontawesome/brands/github
