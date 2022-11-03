@@ -34,6 +34,7 @@ theme:
     - navigation.sections
     - navigation.expand
     - navigation.tracking
+    - navigation.indexes
   language: en
   icon:
     repo: fontawesome/brands/github
