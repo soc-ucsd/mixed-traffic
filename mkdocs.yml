@@ -24,6 +24,8 @@ markdown_extensions:
   - pymdownx.snippets
   - pymdownx.superfences
   - tables
+  - toc:
+      permalink: true
 # Configuration
 theme:
   name: material
