@@ -3,8 +3,8 @@
 ## Contents
 
 - [Smoothing Traffic Flow](smoothing_traffic_flow.md)
-    - [Getting Started](smoothing_traffic_flow.md#Getting_Started)
-    - [Matlab Implementation](smoothing_traffic_flow.md#Matlab Implementation)
+    - [Getting Started](smoothing_traffic_flow.md##Getting_Started)
+    - [Matlab Implementation](smoothing_traffic_flow.md##Matlab Implementation)
     - [Python Implementation](smoothing_traffic_flow.md#Python Implementation)
     - [Experiment Results](smoothing_traffic_flow.md#Experiment Results)
 * [Structured Optimal Control](structured_optimal_control.md)
