@@ -15,8 +15,9 @@
     - [Experiment Results](structured_optimal_control.md#experiment-results)
 
 * [Cooperative Formation of Multiple CAVs](cooperative_formation_multiple.md)
-    - [Getting Started](cooperative_formation_multiple.md#Getting Started)
-    - [Experiment Results](cooperative_formation_multiple.md#Experiment Results)
+    - [Matlab Implementation](cooperative_formation_multiple.md#matlab-implementation)
+    - [Python Implementation](cooperative_formation_multiple.md#python-implementation)
+    - [Experiment Results](cooperative_formation_multiple.md#experiment-results)
     
 * [Numerical Experiments](numerical_data.md)
     - [Setup](student_project/numerical_data.md#Getting Started)
