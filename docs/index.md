@@ -3,7 +3,7 @@
 ## Contents
 
 - [Smoothing Traffic Flow](smoothing_traffic_flow.md)
-    - [Getting Started](smoothing_traffic_flow.md#Getting Started)
+    - [Getting Started](smoothing_traffic_flow.md#Getting&nbspStarted)
     - [Matlab Implementation](smoothing_traffic_flow.md#Matlab Implementation)
     - [Python Implementation](smoothing_traffic_flow.md#Python Implementation)
     - [Experiment Results](smoothing_traffic_flow.md#Experiment Results)
