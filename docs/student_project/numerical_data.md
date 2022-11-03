@@ -38,9 +38,9 @@ Using all of the raw data obtained through the simulation, we were able to creat
 
 <div class="grid cards" markdown>
 
-- ![Alt Text](images/penetration_rate_data/Platoon/Platoon_N=20_settlingtime.png){ width="200" }
-- ![Alt Text](images/penetration_rate_data/Platoon/Platoon_N=45_settlingtime.png){ width="200" }
-- ![Alt Text](images/penetration_rate_data/Platoon/Platoon_N=70_settlingtime.png){ width="200" }
+![Alt Text](images/penetration_rate_data/Platoon/Platoon_N=20_settlingtime.png){ width="200" } ![Alt Text](images/penetration_rate_data/Platoon/Platoon_N=45_settlingtime.png){ width="200" }
+
+![Alt Text](images/penetration_rate_data/Platoon/Platoon_N=70_settlingtime.png){ width="200" }
 
 </div>
 
