@@ -36,55 +36,45 @@ Using all of the raw data obtained through the simulation, we were able to creat
 
 #### Penetration Rate vs Settling Time
 
-![Alt Text](images/penetration_rate_data/Platoon/Platoon_N=20_settlingtime.png){ width="600" } 
-![Alt Text](images/penetration_rate_data/Platoon/Platoon_N=45_settlingtime.png){ width="600" }
-![Alt Text](images/penetration_rate_data/Platoon/Platoon_N=70_settlingtime.png){ width="600" }
+![Alt Text](images/penetration_rate_data/Platoon/Platoon_N=20_settlingtime.png){ width="550" } 
+![Alt Text](images/penetration_rate_data/Platoon/Platoon_N=45_settlingtime.png){ width="550" }
+![Alt Text](images/penetration_rate_data/Platoon/Platoon_N=70_settlingtime.png){ width="550" }
 
 
 #### Penetration Rate vs Maximum Spacing
 
-![Alt Text](images/penetration_rate_data/Platoon/Platoon_N=20_maximum_spacing.png)
-
-![Alt Text](images/penetration_rate_data/Platoon/Platoon_N=45_maximum_spacing.png)
-
-![Alt Text](images/penetration_rate_data/Platoon/Platoon_N=70_maximum_spacing.png)
+![Alt Text](images/penetration_rate_data/Platoon/Platoon_N=20_maximum_spacing.png){ width="600" } 
+![Alt Text](images/penetration_rate_data/Platoon/Platoon_N=45_maximum_spacing.png){ width="600" } 
+![Alt Text](images/penetration_rate_data/Platoon/Platoon_N=70_maximum_spacing.png){ width="600" } 
 
 
 #### Penetration Rate vs Control Energy
 
-![Alt Text](images/penetration_rate_data/Platoon/Platoon_N=20_control_energy.png)
-
-![Alt Text](images/penetration_rate_data/Platoon/Platoon_N=45_control_energy.png)
-
-![Alt Text](images/penetration_rate_data/Platoon/Platoon_N=70_control_energy.png)
+![Alt Text](images/penetration_rate_data/Platoon/Platoon_N=20_control_energy.png){ width="600" } 
+![Alt Text](images/penetration_rate_data/Platoon/Platoon_N=45_control_energy.png){ width="600" } 
+![Alt Text](images/penetration_rate_data/Platoon/Platoon_N=70_control_energy.png){ width="600" } 
 
 
 ### Uniform Case
 
 #### Penetration Rate vs Settling Time
 
-![Alt Text](images/penetration_rate_data/Uniform/Uniform_N=20_settlingtime.png)
-
-![Alt Text](images/penetration_rate_data/Uniform/Uniform_N=45_settlingtime.png)
-
-![Alt Text](images/penetration_rate_data/Uniform/Uniform_N=70_settlingtime.png)
+![Alt Text](images/penetration_rate_data/Uniform/Uniform_N=20_settlingtime.png){ width="600" } 
+![Alt Text](images/penetration_rate_data/Uniform/Uniform_N=45_settlingtime.png){ width="600" } 
+![Alt Text](images/penetration_rate_data/Uniform/Uniform_N=70_settlingtime.png){ width="600" } 
 
 #### Penetration Rate vs Maximum Spacing
 
-![Alt Text](images/penetration_rate_data/Uniform/Uniform_N=20_maximum_spacing.png)
-
-![Alt Text](images/penetration_rate_data/Uniform/Uniform_N=45_maximum_spacing.png)
-
-![Alt Text](images/penetration_rate_data/Uniform/Uniform_N=70_maximum_spacing.png)
+![Alt Text](images/penetration_rate_data/Uniform/Uniform_N=20_maximum_spacing.png){ width="600" } 
+![Alt Text](images/penetration_rate_data/Uniform/Uniform_N=45_maximum_spacing.png){ width="600" } 
+![Alt Text](images/penetration_rate_data/Uniform/Uniform_N=70_maximum_spacing.png){ width="600" } 
 
 
 #### Penetration Rate vs Control Energy
 
-![Alt Text](images/penetration_rate_data/Uniform/Uniform_N=20_control_energy.png)
-
-![Alt Text](images/penetration_rate_data/Uniform/Uniform_N=45_control_energy.png)
-
-![Alt Text](images/penetration_rate_data/Uniform/Uniform_N=70_control_energy.png)
+![Alt Text](images/penetration_rate_data/Uniform/Uniform_N=20_control_energy.png){ width="600" } 
+![Alt Text](images/penetration_rate_data/Uniform/Uniform_N=45_control_energy.png){ width="600" } 
+![Alt Text](images/penetration_rate_data/Uniform/Uniform_N=70_control_energy.png){ width="600" } 
 
 
 ## Experiment Data
@@ -96,6 +86,7 @@ The experiment raw data can be checked throught the following link.
 
 
 ## Analysis
+
 From the data, we can infer several aspects of each controller and their efficacy - 
 - FollowerStopper : This controller performed the best with a larger and larger simulation size. We observed lower energy consumption and a smaller settling time on average for FollowerStopper vehicles. However, the detriment came from the excessive space usage that ocurred - in a single lane, such space usage causes few problems, but in a practical situation, it is unfeasible. 
 - Linear Optimal : This controller performed well, with a roughly decreasing trend for settling time and energy usage with size. As such, we can expect it to perform better with a larger penetration rate. However, experiments showed that the best settling time usually occurred at around 30% penetration. Additionally, the space usage was the smallest out of any controller, making the controller more practical. 
