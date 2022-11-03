@@ -36,10 +36,9 @@ Using all of the raw data obtained through the simulation, we were able to creat
 
 #### Penetration Rate vs Settling Time
 
-<figure markdown>
-    ![Alt Text](images/penetration_rate_data/Platoon/Platoon_N=20_settlingtime.png){ width="50" }
-    <figcaption>Image caption</figcaption>
-</figure>
+
+![Alt Text](images/penetration_rate_data/Platoon/Platoon_N=20_settlingtime.png){ width="50" }
+
 ![Alt Text](images/penetration_rate_data/Platoon/Platoon_N=45_settlingtime.png)
 
 ![Alt Text](images/penetration_rate_data/Platoon/Platoon_N=70_settlingtime.png)
