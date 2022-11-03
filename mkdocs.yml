@@ -31,10 +31,12 @@ theme:
   name: material
   features:
     - navigation.tabs
+    - navigation.tabs.sticky
     - navigation.sections
     - navigation.tracking
     - navigation.indexes
     - toc.integrate 
+    - toc.follow
   language: en
   icon:
     repo: fontawesome/brands/github
