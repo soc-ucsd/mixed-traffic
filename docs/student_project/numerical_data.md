@@ -43,38 +43,38 @@ Using all of the raw data obtained through the simulation, we were able to creat
 
 #### Penetration Rate vs Maximum Spacing
 
-![Alt Text](images/penetration_rate_data/Platoon/Platoon_N=20_maximum_spacing.png){ width="600" } 
-![Alt Text](images/penetration_rate_data/Platoon/Platoon_N=45_maximum_spacing.png){ width="600" } 
-![Alt Text](images/penetration_rate_data/Platoon/Platoon_N=70_maximum_spacing.png){ width="600" } 
+![Alt Text](images/penetration_rate_data/Platoon/Platoon_N=20_maximum_spacing.png){ width="550" } 
+![Alt Text](images/penetration_rate_data/Platoon/Platoon_N=45_maximum_spacing.png){ width="550" } 
+![Alt Text](images/penetration_rate_data/Platoon/Platoon_N=70_maximum_spacing.png){ width="550" } 
 
 
 #### Penetration Rate vs Control Energy
 
-![Alt Text](images/penetration_rate_data/Platoon/Platoon_N=20_control_energy.png){ width="600" } 
-![Alt Text](images/penetration_rate_data/Platoon/Platoon_N=45_control_energy.png){ width="600" } 
-![Alt Text](images/penetration_rate_data/Platoon/Platoon_N=70_control_energy.png){ width="600" } 
+![Alt Text](images/penetration_rate_data/Platoon/Platoon_N=20_control_energy.png){ width="550" } 
+![Alt Text](images/penetration_rate_data/Platoon/Platoon_N=45_control_energy.png){ width="550" } 
+![Alt Text](images/penetration_rate_data/Platoon/Platoon_N=70_control_energy.png){ width="550" } 
 
 
 ### Uniform Case
 
 #### Penetration Rate vs Settling Time
 
-![Alt Text](images/penetration_rate_data/Uniform/Uniform_N=20_settlingtime.png){ width="600" } 
-![Alt Text](images/penetration_rate_data/Uniform/Uniform_N=45_settlingtime.png){ width="600" } 
-![Alt Text](images/penetration_rate_data/Uniform/Uniform_N=70_settlingtime.png){ width="600" } 
+![Alt Text](images/penetration_rate_data/Uniform/Uniform_N=20_settlingtime.png){ width="550" } 
+![Alt Text](images/penetration_rate_data/Uniform/Uniform_N=45_settlingtime.png){ width="550" } 
+![Alt Text](images/penetration_rate_data/Uniform/Uniform_N=70_settlingtime.png){ width="550" } 
 
 #### Penetration Rate vs Maximum Spacing
 
-![Alt Text](images/penetration_rate_data/Uniform/Uniform_N=20_maximum_spacing.png){ width="600" } 
-![Alt Text](images/penetration_rate_data/Uniform/Uniform_N=45_maximum_spacing.png){ width="600" } 
-![Alt Text](images/penetration_rate_data/Uniform/Uniform_N=70_maximum_spacing.png){ width="600" } 
+![Alt Text](images/penetration_rate_data/Uniform/Uniform_N=20_maximum_spacing.png){ width="550" } 
+![Alt Text](images/penetration_rate_data/Uniform/Uniform_N=45_maximum_spacing.png){ width="550" } 
+![Alt Text](images/penetration_rate_data/Uniform/Uniform_N=70_maximum_spacing.png){ width="550" } 
 
 
 #### Penetration Rate vs Control Energy
 
-![Alt Text](images/penetration_rate_data/Uniform/Uniform_N=20_control_energy.png){ width="600" } 
-![Alt Text](images/penetration_rate_data/Uniform/Uniform_N=45_control_energy.png){ width="600" } 
-![Alt Text](images/penetration_rate_data/Uniform/Uniform_N=70_control_energy.png){ width="600" } 
+![Alt Text](images/penetration_rate_data/Uniform/Uniform_N=20_control_energy.png){ width="550" } 
+![Alt Text](images/penetration_rate_data/Uniform/Uniform_N=45_control_energy.png){ width="550" } 
+![Alt Text](images/penetration_rate_data/Uniform/Uniform_N=70_control_energy.png){ width="550" } 
 
 
 ## Experiment Data
