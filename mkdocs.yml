@@ -37,6 +37,7 @@ theme:
     - navigation.indexes
     - toc.integrate 
     - toc.follow
+    - navigation.expand
   language: en
   icon:
     repo: fontawesome/brands/github
