@@ -36,13 +36,10 @@ Using all of the raw data obtained through the simulation, we were able to creat
 
 #### Penetration Rate vs Settling Time
 
-<div class="grid cards" markdown>
-
 ![Alt Text](images/penetration_rate_data/Platoon/Platoon_N=20_settlingtime.png){ width="500" } 
 ![Alt Text](images/penetration_rate_data/Platoon/Platoon_N=45_settlingtime.png){ width="500" }
 ![Alt Text](images/penetration_rate_data/Platoon/Platoon_N=70_settlingtime.png){ width="500" }
 
-</div>
 
 #### Penetration Rate vs Maximum Spacing
 
