@@ -48,7 +48,7 @@ By checking of these three graphs, it is obvious that the system with optimal co
 
 
 
-## Getting Started
+## Getting_Started
 
 ### Environment Setup
 
