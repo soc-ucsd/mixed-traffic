@@ -19,7 +19,8 @@ We use blue car and dot to represent the autonomous vehicles, and green cars and
 
 ### Scenario: Autonomous Vehicle Increases Traffic Speed
 
-![Alt Text](images/smoothing_traffic_flow/Traffic_scenario.png){ align=right weight="500" }
+![Alt Text](images/smoothing_traffic_flow/Traffic_scenario.png){ align=right weight="300" }
+
 The scenario that autonomous vehicle increases the traffic speed. 
 (a) Is the scenario that all vehicles are human driven and the space between each two vehicles is equal for homogeneous car following dynamics. 
 (b) Is the case of mixed traffic systems. The Autonomous vehicle can follow the front car in a short distance. As a result, the rear vehicle will have a larger space and equilibrium velocity increases as the distance increase. Hence, the entire traffic flow speed increase after adding one autonomous vehicle. 
