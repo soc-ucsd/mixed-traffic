@@ -2,7 +2,8 @@
 
 ## Introduction
 
-![Alt Text](images/smoothing_traffic_flow/mixed_traffic_flow_schematic diagram.png){ align=right weight="500" }
+![Alt Text](images/smoothing_traffic_flow/mixed_traffic_flow_schematic diagram.png)
+
 Autonomous vehicle is essential for control the traffic flow and would have higher potential if number of autonomous vehicles increases. From our analysis, 5% proportion of autonomous vehicles would be able to increase the traffic speed by more than 6%. This is very possible nowadays, and with more autonomous vehicles on highway the average speed will keep raising. We proved this by using control theorem framework and considered each autonomous vehicles as controllable nodes. We analysis controllability and stability of the system and designed a control strategy for autonomous vehicles to achieve the ability to smooth mixed traffic flow. In testing, we designed a ring road, for convenience, with mixed traffic driving inside, using the control strategy and get the analytical results on controllability, stability, and reachability. 
 
 
@@ -19,7 +20,7 @@ We use blue car and dot to represent the autonomous vehicles, and green cars and
 
 ### Scenario: Autonomous Vehicle Increases Traffic Speed
 
-![Alt Text](images/smoothing_traffic_flow/Traffic_scenario.png){ align=right weight="300" }
+![Alt Text](images/smoothing_traffic_flow/Traffic_scenario.png){ align=right weight="300" height="100" }
 
 The scenario that autonomous vehicle increases the traffic speed. 
 (a) Is the scenario that all vehicles are human driven and the space between each two vehicles is equal for homogeneous car following dynamics. 
