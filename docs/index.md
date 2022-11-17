@@ -20,9 +20,10 @@
     - [Python Implementation](cooperative_formation_multiple.md#python-implementation)
     - [Experiment Results](cooperative_formation_multiple.md#experiment-results)
 
-* [Numerical Experiments](student_project/numerical_data.md)
-    - [Setup](student_project/numerical_data.md#setup)
-    - [Experiment Results](student_project/numerical_data.md#experiment-result)
-    - [Experiment Data](student_project/numerical_data.md#experiment-data)
-    - [Analysis](student_project/numerical_data.md#analysis)
+* [Student Project](student_project/numerical_data.md)
+    - [Penetration Rate Experiments](student_project/numerical_data.md)
+        - [Setup](student_project/numerical_data.md#setup)
+        - [Experiment Results](student_project/numerical_data.md#experiment-result)
+        - [Experiment Data](student_project/numerical_data.md#experiment-data)
+        - [Analysis](student_project/numerical_data.md#analysis)
 
