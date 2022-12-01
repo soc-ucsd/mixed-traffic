@@ -19,7 +19,7 @@ We use blue car and dot to represent the autonomous vehicles, and green cars and
 
 ### Scenario: Autonomous Vehicle Increases Traffic Speed
 
-![Alt Text](images/smoothing_traffic_flow/Traffic_scenario.png){height="50"}
+![Alt Text](images/smoothing_traffic_flow/Traffic_scenario.png){align=right}
 
 The scenario that autonomous vehicle increases the traffic speed. 
 (a) Is the scenario that all vehicles are human driven and the space between each two vehicles is equal for homogeneous car following dynamics. 
