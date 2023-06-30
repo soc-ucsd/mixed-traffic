@@ -587,6 +587,8 @@ This function takes S and parameter as input to  calculate the acceleration of H
 - type:         type of the HDV car-following model
 - parameter:    Parameter value in the car-following model
 - acel:         acceleration of HDVs
+<details>
+<summary>Click here to view code</summary>
 
 ```matlab=
 function [acel] = HDV_dynamics(S,parameter)
@@ -648,9 +650,13 @@ end
 
 end
 ```
+</details>
 
 ##### [hankel_matrix.m](https://github.com/soc-ucsd/DeeP-LCC/blob/main/_fcn/hankel_matrix.m)
 This function is used for generating a Hankel matrix of order L.
+<details>
+<summary>Click here to view code</summary>
+
 ```matlab=
 function [U] = hankel_matrix(u,L)
 
@@ -665,6 +671,7 @@ end
 
 end
 ```
+</details>
 
 ##### [measure_mixed_traffic.m](https://github.com/soc-ucsd/DeeP-LCC/blob/main/_fcn/measure_mixed_traffic.m)
 This function take the a series of parameters setting as input to measure the output in mixed traffic flow.
@@ -677,6 +684,9 @@ This function take the a series of parameters setting as input to measure the ou
   1. Only the velocity errors of all the vehicles are measurable;
   2. All the states, including velocity error and spacing error are measurable;
   3. Velocity error and spacing error of the CAVs are measurable,and the velocity error of the HDVs are measurable.
+<details>
+<summary>Click here to view code</summary>
+
 ```matlab=
 function [y] = measure_mixed_traffic(vel,pos,ID,v_star,s_star,type)
 
@@ -697,6 +707,7 @@ end
 
 end
 ```
+</details>
 
 ##### [qp_DeeP_LCC.m](https://github.com/soc-ucsd/DeeP-LCC/blob/main/_fcn/qp_DeeP_LCC.m)
 
@@ -2403,7 +2414,7 @@ The results are shown below:
 Simulation results in Experiment B. $(a)(c)(e)$ show the velocity, spacing, and acceleration profiles, respectively when all the vehicles are HDVs, while (b)(d)(f) show the corresponding profiles where the two CAVs utilize DeeP-LCC. In $(c)-(f)$, the profiles of the other HDVs are hidden.
 
 ## Runtime
-Here we present the runtime of both simulation at the time of the creation of this webpage.\
+Here we present the runtime of both simulations at the time of creation of this webpage.\
 **Optimization for main_brake_simulation**\
 Matlab: 13.5 min\
 Python: 14   min\
